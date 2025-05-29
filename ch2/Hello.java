@@ -41,3 +41,25 @@ public class Hello { // class : 변수, 상수, 함수 기능들의 묶음.
         // result2 에 담아서, 출력해보기
     }
 }
+
+/*
+ * 영역이,
+ * public class Hello {
+ * 클래스 영역 안1 = 영역1 시작
+ * 
+ * sum 메소드 존재
+ * multiple 메소드 추가 -퀴즈1
+ * 
+ * public static void main(String[] args) {
+ * 메인 메소드 영역 안2 = 영역2 시작
+ * 
+ * sum 메소드 사용해서, 문자열 출력.
+ * 
+ * * multiple 메소드 사용 출력. -퀴즈1
+ * 
+ * 메인 메소드 영역 안2 = 영역2 영역 끝부분
+ * }
+ * 
+ * 클래스 영역 안1 = 영역1- 영역 끝부분
+ * }
+ */
