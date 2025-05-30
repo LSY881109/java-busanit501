@@ -23,6 +23,10 @@ public class MainClass {
             // 사용자가 입력한 번호를 문자열 형태로 받기
             String choice = scanner.nextLine();
             // 첫번째, if 형태의 조건문
+            // 문자열을 비교 할 때는 , 문자열에 탑재된 기능 중에서, equals() 메서드를 이용함.
+            // 기본 문법
+            // 문자열.equals("비교할 문자열");
+            // 예시 ) choice.equals("1") // choice 변수에 저장된 문자열이 "1" 문자열 과 같은지 비교
             if (choice.equals("1")) {
                 // 회원 가입 기능 호출
                 UserService.registerUser(scanner);
