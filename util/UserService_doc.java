@@ -2,7 +2,7 @@ package util;
 
 import java.util.Scanner;
 
-public class UserService {
+public class UserService_doc {
     // 회원 가입 기능, 정적 메소드 생성.
     // 콘솔로 입력을 받고, 결과를 문자열로 반환하는 기능을 포함.
     // 추후 업그레이드는 반환 타입을 : 문자열에서, 사용자 클래스 객체로 변경 예정.
@@ -21,9 +21,31 @@ public class UserService {
         // 순서3, 이메일 입력 받기
         System.out.println("이메일 입력해주세요 > ");
         String email = scanner.nextLine(); // 이메일 입력 받기
+        // ====================================================================================
+        // 패스워드 입력 확인 후, 다음 단계로 넘어가기
+        String password;
+        // while 문에서, 패스워드 부분이 입력이 맞으면 다음 단계, 아니면 , 계속 확인하기.
+        while (true) {
+            System.out.println("패스워드 입력해주세요 > ");
+            password = scanner.nextLine(); // 패스워드 입력 받기
+
+            System.out.println("패스워드 확인 입력해주세요 > ");
+            String password2 = scanner.nextLine(); // 패스워드 입력 받기
+
+            // 패스워드가 비어있지 않은지 확인
+            if (password.isEmpty()) {
+                System.out.println("패스워드는 비워둘 수 없습니다. 다시 입력해주세요.");
+            } else if (password.equals(password2)) { // 패스워드와 확인 입력이 일치하는지 확인
+                System.out.println("패스워드가 일치합니다");
+                break; // 패스워드가 일치하면 루프 종료
+            } else {
+                System.out.println("패스워드가 일치하지 않습니다. 다시 입력해주세요.");
+            }
+        }
+        // ====================================================================================
         // 순서4, 패스워드 입력 받기
-        System.out.println("패스워드 입력해주세요 > ");
-        String password = scanner.nextLine(); // 패스워드 입력 받기
+        // System.out.println("패스워드 입력해주세요 > ");
+        // String password = scanner.nextLine(); // 패스워드 입력 받기
 
         // 순서5, 입력 받은 내용 출력
         System.out.println("이름 : " + name);
