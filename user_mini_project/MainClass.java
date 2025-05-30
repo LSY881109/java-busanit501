@@ -17,9 +17,9 @@ public class MainClass {
             System.out.println("회원 관리 시스템에 오신 것을 환영합니다. 배운거 복습 적용해보기");
             // 순서3
             // 3번 메뉴 추가
-            System.out.println("1. 회원 가입  2.로그인 3.산술 연산자 테스트  0.종료");
+            System.out.println("1. 회원 가입  2.로그인 3.산술 연산자 테스트  4.산술 연산자 테스트2  0.종료");
             System.out.println("========================================================");
-            System.out.println("메뉴 번호를 선택해주세요 (0~2): ");
+            System.out.println("메뉴 번호를 선택해주세요 (0~4): ");
             // 사용자가 입력한 번호를 문자열 형태로 받기
             String choice = scanner.nextLine();
             // 첫번째, if 형태의 조건문
@@ -38,6 +38,9 @@ public class MainClass {
             } else if (choice.equals("3")) {
                 // 산술연산자 테스트 기능 호출
                 OperConditionTest.oper1();
+            } else if (choice.equals("4")) {
+                // 산술연산자 테스트 기능 호출
+                OperConditionTest.oper2();
             } else if (choice.equals("0")) {
                 // 프로그램 종료
                 System.out.println("프로그램을 종료합니다. 감사합니다!");
