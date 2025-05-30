@@ -27,6 +27,18 @@ public class Hello2 {
         return (float) n / m; // 정수를 입력 받아서, 계산시 이것도 정수로 계산이 되니깐
     }
 
+    // 함수 정의 1, 순서1
+    // 정적 메소드 6, 퀴즈 , 본인 소개하는 메서드
+    // 본인의 이름과, 전화번호, 이메일을 입력 받는 매개변수가 3개이고,
+    // 출력값은 문자열 타입인데 : 결과는
+    // 저는 {이름} 입니다.
+    // 제 전화번호 : {전화번호}이고,
+    // 이메일: {이메일} 입니다.
+    public static String introduce(String name, String phone, String email) {
+        String introduce_myself = "저는 " + name + " 입니다. 제 전화번호 : " + phone + " 이고,이메일: " + email + "입니다.";
+        return introduce_myself;
+    }
+
     // 정적 메소드, 이름 : main
     public static void main(String[] args) {
         int result = sum(100, 200);
@@ -59,7 +71,8 @@ public class Hello2 {
         // 소수로 -> 실수로 표현은 어떻게 할까?/
         // 데이터 타입에 대해서
         // 기본형,
-        // byte, int, short ,float , long, double, char, boolean
+        // byte, int(정수, 기본값, 4바이트), short ,float(실수 4바이트) ,
+        // long(정수, 8바이트), double(실수 8바이트), char, boolean
         // 참조형 : 기본형을 제외한 나머지 모두를 가리킨다.
         // 객체(Object), 배열(Array), 문자열(String ) 등
 
@@ -95,5 +108,19 @@ public class Hello2 {
         // 이메일: {이메일} 입니다.
         // 출력 하는 예제 해보기.
 
+        // 위에서 정의한 함수를 사용하기.
+        // 함수 사용 2, 순서2
+        String introduce_info = introduce("이상용", "010-7661-3709", "lsy@naver.com");
+        System.out.println(introduce_info);
+
+        // 퀴즈,
+        // 내가 좋아하는 음식, 취미, 게임 등 알려주는 기능
+        // 좋아하는 음식, 취미,게임 매개변수가 3개 정의
+        // 출력
+        //
+        // 제가 좋아하는 음식은 : {음식이름} 입니다.
+        // 제 취미 : {취미명}이고,
+        // 좋아하는 게임: {게임명} 입니다.
+        // 출력 하는 예제 해보기.
     }
 }
