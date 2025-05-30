@@ -15,4 +15,10 @@ public class OperConditionTest {
         System.out.println("몫: b / a = " + (b / a)); // 나눗셈
         System.out.println("나머지: b % a = " + (b % a)); // 나머지
     }
+
+    // 퀴즈 ,
+    // 1) 여기에 임의의 산술 연산하는 기능의 정적 메서드 만들기. 메서드명 : oper2()
+    // 2) 클래스명 : OperConditionTestMain, 여기에서 메서드명 : oper2( 1차 실행 확인
+    // 3) 클래스명 : MainClass, 여기에 4번 메뉴로 추가하기
+    // 4) MainClass에서 실행 확인하기
 }
