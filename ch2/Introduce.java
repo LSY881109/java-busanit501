@@ -1,6 +1,6 @@
 package ch2;
 
-public class Hello2 {
+public class Introduce {
     // 정적인 메소드 정의,(함수정의)
     // 메소드1 , 결과 반환값의 타입 : int
     public static int sum(int n, int m) {
@@ -36,6 +36,22 @@ public class Hello2 {
     // 이메일: {이메일} 입니다.
     public static String introduce(String name, String phone, String email) {
         String introduce_myself = "저는 " + name + " 입니다. 제 전화번호 : " + phone + " 이고,이메일: " + email + "입니다.";
+        return introduce_myself;
+    }
+
+    // 퀴즈2 ,
+    // 함수정의 1
+    // 내가 좋아하는 음식, 취미, 게임 등 알려주는 기능
+    // 좋아하는 음식, 취미,게임 매개변수가 3개 정의
+    // 출력
+    //
+    // 제가 좋아하는 음식은 : {음식이름} 입니다.
+    // 제 취미 : {취미명}이고,
+    // 좋아하는 게임: {게임명} 입니다.
+    // 출력 하는 예제 해보기.
+    public static String introduce_hobby(String food, String hobby, String gameName) {
+        String introduce_myself = "제가 좋아하는 음식은 :  " + food +
+                " 입니다. 제 취미 : " + hobby + " 이고,좋아하는 게임: " + gameName + "입니다.";
         return introduce_myself;
     }
 
@@ -122,5 +138,11 @@ public class Hello2 {
         // 제 취미 : {취미명}이고,
         // 좋아하는 게임: {게임명} 입니다.
         // 출력 하는 예제 해보기.
+
+        // 해야할 일,
+        // 1)함수 정의
+        // 2)함수 사용
+        String introduce_info2 = introduce_hobby("돼지국밥", "복싱", "철권8,스타1,던파");
+        System.out.println(introduce_info2);
     }
 }
