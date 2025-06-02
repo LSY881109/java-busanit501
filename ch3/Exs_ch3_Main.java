@@ -9,6 +9,10 @@ public class Exs_ch3_Main {
         // 공용으로 사용할 스캐너
         Scanner scanner = new Scanner(System.in);
 
+        // Ex3-6-3, 이중 배열 예시
+        Exs_ch3.ex3_6_3();
+        System.out.println("============================");
+
         // Ex3-6-2, 배열 직접 생성과 값 할당 예시
         Exs_ch3.ex3_6_2();
 

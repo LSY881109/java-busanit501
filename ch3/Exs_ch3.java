@@ -3,6 +3,26 @@ package ch3;
 import java.util.Scanner;
 
 public class Exs_ch3 {
+    // ex3--6-3, 이중 배열 예시
+    public static void ex3_6_3() {
+        // 기본 문법
+        // 자료형[][] 배열이름 = new 자료형[행의 수][열의 수];
+
+        // 이중 배열 선언 및 초기화
+        int[][] matrix = {
+                { 1, 2, 3 },
+                { 4, 5, 6 },
+                { 7, 8, 9 }
+        };
+
+        // 이중 배열 값 출력
+        for (int i = 0; i < matrix.length; i++) { // 행 반복
+            for (int j = 0; j < matrix[i].length; j++) { // 열 반복
+                System.out.print(matrix[i][j] + " "); // 각 요소 출력
+            }
+            System.out.println(); // 행이 끝나면 줄바꿈
+        }
+    }
 
     // ex3-6-2, 배열 직접 생성과 값 할당 예시
     public static void ex3_6_2() {
