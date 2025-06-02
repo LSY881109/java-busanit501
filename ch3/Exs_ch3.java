@@ -3,6 +3,25 @@ package ch3;
 import java.util.Scanner;
 
 public class Exs_ch3 {
+    // 퀴즈
+    // 사용자로 부터 문자를 입력을 받아, q가 나올때 까지 문자의 개수를 세는 프로그램을 작성하세요.
+    //
+    public static int ex3_2_quiz(Scanner scanner) {
+        String total = ""; // 입력된 총 문자열 수
+
+        while (true) {
+            System.out.println("문자를 입력하세요 (다음 문장에 q를 입력하면 종료): ");
+            String input = scanner.nextLine(); // 한 줄 입력 받기
+            total += input; // 입력된 문자열을 누적
+            System.out.println("계속 입력하려면 아무키나 입력하고, 종료시에 q를 입력하세요.");
+            String command = scanner.nextLine(); // 다음 명령어 입력 받기
+            if (command.equals("q")) { // 대소문자 구분 없이 q 입력시 종료
+                break; // while 문 종료
+            }
+        }
+        int count = total.length(); // 입력된 문자열의 길이(문자 개수)
+        return count;
+    }
 
     // ex3-2 , while 문 이용해서, 예,
     // 0이 입력이 되면 while 문종료, 입력한 숫자들의 합을 구하기. '
@@ -24,10 +43,6 @@ public class Exs_ch3 {
         System.out.println("입력한 숫자의 합은: " + sum);
         // scanner.close(); // 스캐너 자원 반납
     }
-
-    // 퀴즈
-    // 사용자로 부터 문자를 입력을 받아, q가 나올때 가지 문자의 개수를 세는 프로그램을 작성하세요.
-    //
 
     // ex3-1
     // 기본 for 이용해서, 1~10까지 의 합을 구하는 내용인데.

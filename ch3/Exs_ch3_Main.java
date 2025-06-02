@@ -7,6 +7,11 @@ public class Exs_ch3_Main {
         // 공용으로 사용할 스캐너
         Scanner scanner = new Scanner(System.in);
 
+        // Ex3-2 퀴즈 , 예시 확인.
+        int count = Exs_ch3.ex3_2_quiz(scanner);
+        System.out.println("입력한 문자 개수: " + count);
+        System.out.println("============================");
+
         // Ex3-2 , 예시 확인.
         Exs_ch3.ex3_2(scanner);
         System.out.println("============================");
