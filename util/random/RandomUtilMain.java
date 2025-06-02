@@ -1,4 +1,4 @@
-package util;
+package util.random;
 
 public class RandomUtilMain {
     // 메인 메소드가 있는 클래스, 실행용 클래스

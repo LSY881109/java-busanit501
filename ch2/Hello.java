@@ -2,7 +2,7 @@ package ch2; // package 폴더
 
 import java.util.Scanner;
 
-import util.UserService;
+import util.user.UserService;
 
 // public : 접근 지정자, 파란색으로 표기 되는 부분은 예약어 키워드, 
 // 변수명으로 따로 사용안됨. 
