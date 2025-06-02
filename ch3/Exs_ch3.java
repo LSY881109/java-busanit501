@@ -11,6 +11,7 @@ public class Exs_ch3 {
         int sum = 0;
         for (int i = 0; i < 5; i++) {
             int n = scanner.nextInt();
+            System.out.println("입력한 숫자: " + n + ", i의 값 확인 : " + i); // 입력한 숫자 확인용
             if (n <= 0)
                 continue; // 0이나 음수인 경우 더하지 않고 다음 반복으로 진행
             else
