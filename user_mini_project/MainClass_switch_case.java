@@ -1,19 +1,25 @@
 package user_mini_project;
 
+import java.util.Random;
 import java.util.Scanner;
 
 import ch2.OperConditionTest;
+import util.random.RandomUtil;
 import util.user.UserService;
 
 public class MainClass_switch_case {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
+            // 따로 앞단 없어서, 현재는 콘솔을 화면 대체로 이용중.
+            // 디비가 따로 없어서, 현재는 메모리에 임시 저장으로 이용함.
+            // 나중에 jdbc 연결 하면, 그때 디비에 저장, 불러오고, 쓰기, 수정 등 할 예정.
             System.out.println("========================================================");
             System.out.println("회원 관리 시스템에 오신 것을 환영합니다. 배운거 복습 적용해보기");
             System.out.println("1. 회원 가입  2.로그인 3.산술 연산자 테스트  4.산술 연산자 테스트2  0.종료");
+            System.out.println("5. 로또 번호 생성기:배열 없는 버전");
             System.out.println("========================================================");
-            System.out.println("메뉴 번호를 선택해주세요 (0~4): ");
+            System.out.println("메뉴 번호를 선택해주세요 (0~5): ");
 
             String choice = scanner.nextLine();
             switch (choice) {
@@ -28,6 +34,9 @@ public class MainClass_switch_case {
                     break;
                 case "4":
                     OperConditionTest.oper2();
+                    break;
+                case "5":
+                    RandomUtil.generateLottoNumbers();
                     break;
                 case "0":
                     System.out.println("프로그램을 종료합니다. 감사합니다!");
