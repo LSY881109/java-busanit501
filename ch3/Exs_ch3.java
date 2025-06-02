@@ -3,6 +3,16 @@ package ch3;
 import java.util.Scanner;
 
 public class Exs_ch3 {
+
+    public static void ex3_3() {
+        char a = 'a';
+        do {
+            System.out.print(a);
+            // char 타입의 a -> int 변환시 , 값: 97, 유니코드 값 : 97
+            a = (char) (a + 1); // a+1 는 int 타입으로 계산되므로, char로 변환
+        } while (a <= 'z');
+    }
+
     // 퀴즈
     // 사용자로 부터 문자를 입력을 받아, q가 나올때 까지 문자의 개수를 세는 프로그램을 작성하세요.
     //

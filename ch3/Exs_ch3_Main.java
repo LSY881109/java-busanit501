@@ -2,14 +2,20 @@ package ch3;
 
 import java.util.Scanner;
 
+import ch2.Exs;
+
 public class Exs_ch3_Main {
     public static void main(String[] args) {
         // 공용으로 사용할 스캐너
         Scanner scanner = new Scanner(System.in);
 
+        // Ex3-3 퀴즈 ,do while 문 예시 확인.
+        Exs_ch3.ex3_3();
+        System.out.println("\n============================");
+
         // Ex3-2 퀴즈 , 예시 확인.
-        int count = Exs_ch3.ex3_2_quiz(scanner);
-        System.out.println("입력한 문자 개수: " + count);
+        // int count = Exs_ch3.ex3_2_quiz(scanner);
+        // System.out.println("입력한 문자 개수: " + count);
         System.out.println("============================");
 
         // Ex3-2 , 예시 확인.
