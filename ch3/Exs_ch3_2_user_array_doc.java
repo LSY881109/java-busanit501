@@ -53,8 +53,37 @@ public class Exs_ch3_2_user_array_doc {
         }
         System.out.println("등록된 회원 목록:");
         for (int i = 0; i < userCount; i++) {
-            System.out.println((i + 1) + ". " + names[i] + ", " + emails[i] + ", " + registrationDates[i]);
+            System.out.println("인덱스 번호 : " + i + ", " + (i + 1) + ". " + names[i] + ", " + emails[i] + ", "
+                    + registrationDates[i]);
         }
     } // 회원 조회 메서드
+
+    // 회원 수정 메서드
+    // 회원 전체 목록에서, 해당 회원의 인덱스를 번호를 이용해서, 회원 정보를 수정해보기.
+    public static void updateUser(Scanner scanner) {
+        System.out.println("수정할 회원의 인덱스를 입력하세요 (0 ~ " + (userCount - 1) + "): ");
+        int index = scanner.nextInt(); // 수정할 회원의 인덱스 입력
+        if (index < 0 || index >= userCount) {
+            System.out.println("잘못된 인덱스입니다.");
+            return;
+        }
+        System.out.println("수정할 회원의 이름을 입력하세요: ");
+        String name = scanner.nextLine();
+        names[index] = name; // 이름 수정
+
+        System.out.println("수정할 회원의 이메일을 입력하세요: ");
+        String email = scanner.nextLine();
+        emails[index] = email; // 이메일 수정
+
+        System.out.println("수정할 회원의 패스워드를 입력하세요: ");
+        String password = scanner.nextLine();
+        passwords[index] = password; // 패스워드 수정
+
+        // 현재 날짜와 시간 저장
+        String registrationDate = DateUtil.getCurrentDateTime();
+        registrationDates[index] = registrationDate; // 등록일 수정
+
+        System.out.println("회원 정보가 수정되었습니다: " + names[index] + ", " + emails[index]);
+    } // 회원 수정 메서드
 
 }

@@ -25,7 +25,7 @@ public class Exs_ch3_Main {
                     Exs_ch3_2_user_array_doc.viewUsers(); // 회원 조회
                     break;
                 case 3:
-                    System.out.println("회원 수정 기능은 아직 구현되지 않았습니다.");
+                    Exs_ch3_2_user_array_doc.updateUser(scanner); // 회원 수정
                     break;
                 case 4:
                     System.out.println("회원 삭제 기능은 아직 구현되지 않았습니다.");
