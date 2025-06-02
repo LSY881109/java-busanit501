@@ -2,6 +2,8 @@ package ch3;
 
 import java.util.Scanner;
 
+import util.date.*;
+
 public class Exs_ch3_2_user_array_doc {
     // 회원 관리 프로그램 버전2, 저장소: 임시 메모리(배열) 이용할 예정.
     // 배열 주의 사항) 1) 고정 길이 , 2) 크기 변경 불가, 3) 같은 타입 사용.
@@ -32,7 +34,7 @@ public class Exs_ch3_2_user_array_doc {
             passwords[userCount] = password; // 패스워드 저장
 
             // 현재 날짜와 시간 저장
-            String registrationDate = util.date.DateUtil.getCurrentDateTime(); // 현재 날짜와 시간
+            String registrationDate = DateUtil.getCurrentDateTime();
             registrationDates[userCount] = registrationDate; // 등록일 저장
 
             // 회원 수 증가

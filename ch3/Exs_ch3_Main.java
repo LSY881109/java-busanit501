@@ -41,14 +41,14 @@ public class Exs_ch3_Main {
         System.out.println("============================");
 
         // Ex3-6-3, 이중 배열 예시
-        Exs_ch3.ex3_6_3();
+        // Exs_ch3.ex3_6_3();
         System.out.println("============================");
 
         // Ex3-6-2, 배열 직접 생성과 값 할당 예시
-        Exs_ch3.ex3_6_2();
+        // Exs_ch3.ex3_6_2();
 
         // Ex3-6, 배열1, 기본 생성과, 값 할당, 반복문 활용한 출력 예시
-        Exs_ch3.ex3_6();
+        // Exs_ch3.ex3_6();
         System.out.println("============================");
 
         // Ex3-5, continue 확인 , 다음 반복으로 넘어가는 예시,
