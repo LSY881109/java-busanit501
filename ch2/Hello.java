@@ -1,5 +1,7 @@
 package ch2; // package 폴더
 
+import java.util.Scanner;
+
 import util.UserService;
 
 // public : 접근 지정자, 파란색으로 표기 되는 부분은 예약어 키워드, 
@@ -21,6 +23,7 @@ public class Hello { // class : 변수, 상수, 함수 기능들의 묶음.
     // 함수의 정의
     public static int sum(int n, int m) {
         return n + m;
+        // System.out.println("합: " + n + m);
     }
 
     // public : 접근 지정자, 누구나 다 접근이 된다(모두 볼수 있다)
@@ -43,7 +46,9 @@ public class Hello { // class : 변수, 상수, 함수 기능들의 묶음.
         // result2 에 담아서, 출력해보기
 
         // 다른 클래스 파일에서, 우리가 만들었던 UserService 클래스를 불러와서, 콘솔로 회원 가입 하는 기능 구현.
-        UserService.registerUser();
+        // 스캐너가 없어서 오류가 남
+        Scanner scanner = new Scanner(System.in);
+        UserService.registerUser(scanner);
 
     }
 }

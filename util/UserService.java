@@ -34,10 +34,18 @@ public class UserService {
             }
         }
         // 기능 추가
+        // 기능 추가2, 현재 날짜를 저장하는 변수 , regDate 추가.
+        // 화면에서, 사용자에게 현재 시간을 입력 받는 화면을 제공 안합니다.
+        // 실제로 현재 시간은 , 시스템에서 자동으로 입력을 받고,
+        // 나중에 디비에 저장하는 형태.
+        String regDate = DateUtil.getCurrentDateTime(); // 현재 날짜 시간 가져오기
+        // 기능 추가2
         // ============================================================================
         System.out.println("이름 : " + name);
         System.out.println("이메일 : " + email);
         System.out.println("패스워드 : " + password);
+        // 기능 추가2 출력
+        System.out.println("가입 날짜 : " + regDate); // 현재 날짜 시간 출력
         System.out.println("회원 가입 완료되었습니다.");
 
     }
