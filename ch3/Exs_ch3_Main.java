@@ -9,6 +9,7 @@ public class Exs_ch3_Main {
 
         // Ex3-2 , 예시 확인.
         Exs_ch3.ex3_2(scanner);
+        System.out.println("============================");
 
         // Ex3-1 , 예시 확인.
         int result_ex3_1 = Exs_ch3.getSum(10); // 55
