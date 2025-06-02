@@ -7,6 +7,36 @@ public class Exs_doc {
     // 출력은 "홍길동님, 좋아하는 월은 5월입니다." 출력하기.
     // 좋아하는 월에 따른, 계절의 이름 출력, 봄(3~5), 여름(6~8), 가을(9~11), 겨울(12~2)
     // 1)switch 문 이용하거나, 2) if~ else if 문 이용해서 구현하기.
+    public static String exMini_quiz1(String name, int month) {
+        String season = "";
+        switch (month) {
+            case 3:
+            case 4:
+            case 5:
+                season = "봄";
+                break;
+            case 6:
+            case 7:
+            case 8:
+                season = "여름";
+                break;
+            case 9:
+            case 10:
+            case 11:
+                season = "가을";
+                break;
+            case 12:
+            case 1:
+            case 2:
+                season = "겨울";
+                break;
+            default:
+                return "잘못된 월입니다.";
+        }
+        String result = "" + name + "님, 좋아하는 월은 " + month + "월입니다. 계절은 " + season + "입니다.";
+        // return String.format("%s님, 좋아하는 월은 %d월입니다. 계절은 %s입니다.", name, month, season);
+        return result;
+    }
 
     // if 문 이용 가능하지만, 조건 연산식으로, 표현.
     // 삼항 연산자 예시, 조건 ? 참일 때 : 거짓일 때

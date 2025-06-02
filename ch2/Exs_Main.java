@@ -1,7 +1,22 @@
 package ch2;
 
+import java.util.Scanner;
+
 public class Exs_Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("사용자 이름을 입력하세요:");
+        String name = scanner.nextLine();
+        System.out.println("좋아하는 월을 입력하세요 (1~12):");
+        String month = scanner.nextLine();
+        int monthInt = Integer.parseInt(month);
+        // 스캐너 이용해서 받아서 입력.
+        Exs_doc.exMini_quiz1(name, monthInt);
+        scanner.close();
+        // 하드 코딩, 직접 이름과, 월을 입력 하건.
+        // Exs_doc.exMini_quiz1("홍길동", 5);
+        // 퀴즈
 
         // EX2-9, 삼항 연산자 예시
         String result_ex2_9 = Exs_doc.getTernaryExam(75);
