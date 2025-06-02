@@ -9,7 +9,7 @@ public class Exs_ch3_2_user_array_doc {
     // 퀴즈,
     // 아래 코드를 이용해서,
     // 도서 관리 프로그램을 만들기,
-    // +@ : 검색 기능 넣기
+    // + @ : 검색 기능 넣기
 
     // 회원 관리 프로그램 버전2, 저장소: 임시 메모리(배열) 이용할 예정.
     // 배열 주의 사항) 1) 고정 길이 , 2) 크기 변경 불가, 3) 같은 타입 사용.
@@ -143,5 +143,26 @@ public class Exs_ch3_2_user_array_doc {
         System.out.println("더미 회원 5명이 추가되었습니다.");
     }
     // 회원 더미 데이터 5개 추가하는 메서드
+
+    // 검색 기능
+    // 회원 목록에서 이름 또는 이메일로 검색하는 기능을 추가할 수 있습니다.
+    public static void searchUser(Scanner scanner) {
+        System.out.println("검색할 회원의 이름 또는 이메일을 입력하세요: ");
+        String searchQuery = scanner.nextLine();
+        boolean found = false;
+
+        for (int i = 0; i < userCount; i++) {
+            if (names[i].contains(searchQuery) || emails[i].contains(searchQuery)) {
+                System.out.println("검색 결과: " + (i + 1) + ". " + names[i] + ", " + emails[i] + ", "
+                        + registrationDates[i]);
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("검색 결과가 없습니다.");
+        }
+    }
+    // 검색 기능
 
 }
