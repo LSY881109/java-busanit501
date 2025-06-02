@@ -10,6 +10,8 @@ import util.user.UserService;
 public class MainClass_switch_case {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        int number;
+
         while (true) {
             // 따로 앞단 없어서, 현재는 콘솔을 화면 대체로 이용중.
             // 디비가 따로 없어서, 현재는 메모리에 임시 저장으로 이용함.
@@ -18,6 +20,7 @@ public class MainClass_switch_case {
             System.out.println("회원 관리 시스템에 오신 것을 환영합니다. 배운거 복습 적용해보기");
             System.out.println("1. 회원 가입  2.로그인 3.산술 연산자 테스트  4.산술 연산자 테스트2  0.종료");
             System.out.println("5. 로또 번호 생성기:배열 없는 버전");
+
             System.out.println("========================================================");
             System.out.println("메뉴 번호를 선택해주세요 (0~5): ");
 
