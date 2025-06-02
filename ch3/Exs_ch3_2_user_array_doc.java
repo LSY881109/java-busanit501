@@ -63,6 +63,7 @@ public class Exs_ch3_2_user_array_doc {
     public static void updateUser(Scanner scanner) {
         System.out.println("수정할 회원의 인덱스를 입력하세요 (0 ~ " + (userCount - 1) + "): ");
         int index = scanner.nextInt(); // 수정할 회원의 인덱스 입력
+        scanner.nextLine(); // 개행 문자 제거
         if (index < 0 || index >= userCount) {
             System.out.println("잘못된 인덱스입니다.");
             return;
