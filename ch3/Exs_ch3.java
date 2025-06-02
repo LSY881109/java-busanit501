@@ -4,6 +4,28 @@ import java.util.Scanner;
 
 public class Exs_ch3 {
 
+    // ex3-6, 배열,
+    // 선언하는 방법 크개 2가지
+    // 자료형[] 배열이름 = new 자료형[크기]; // 기본 방식
+    // 자료형 배열이름[] = new 자료형[크기]; // 오래된 방식 (C 스타일)
+
+    // 예시 , 숫자 타입의 배열을 선언하기, 공간 5개 설정.
+    public static void ex3_6() {
+        int[] numbers = new int[5]; // 배열 선언, 크기 5개
+        // int numbers[] = new int[5]; // C 스타일 배열 선언 (오래된 방식)
+
+        // 배열에 값 할당
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = i + 1; // 1부터 5까지의 값 할당
+        }
+
+        // 배열 값 출력
+        for (int number : numbers) {
+            System.out.print(number + " "); // 1 2 3 4 5 출력
+        }
+        System.out.println(); // 줄바꿈
+    }
+
     // ex3-5 , continue 확인 , 다음 반복으로 넘어가는 예시,
     // 숫자는 5개 입력을하고, 합을 구하는 예시, 음수 또는 0이 입력되면, 새로 입력 함.
     public static void ex3_5(Scanner scanner) {

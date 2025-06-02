@@ -9,6 +9,10 @@ public class Exs_ch3_Main {
         // 공용으로 사용할 스캐너
         Scanner scanner = new Scanner(System.in);
 
+        // Ex3-6, 배열1, 기본 생성과, 값 할당, 반복문 활용한 출력 예시
+        Exs_ch3.ex3_6();
+        System.out.println("============================");
+
         // Ex3-5, continue 확인 , 다음 반복으로 넘어가는 예시,
         Exs_ch3.ex3_5(scanner);
         System.out.println("============================");
