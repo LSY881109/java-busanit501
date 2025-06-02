@@ -4,8 +4,22 @@ import java.util.Scanner;
 
 public class Exs_ch3 {
 
+    // ex3-6-2, 배열 직접 생성과 값 할당 예시
+    public static void ex3_6_2() {
+        // 배열 직접 생성과 값 할당 예시
+        int[] numbers = { 1, 2, 3, 4, 5 }; // 배열 선언과 동시에 값 할당
+
+        // 배열 값 출력
+        // 향상된 for 문 기본 문법 형식,
+        // for (자료형 변수 : 배열이름) { // 배열에서 각 요소를 하나씩 꺼내서 변수에 할당
+        for (int number : numbers) {
+            System.out.print(number + " "); // 1 2 3 4 5 출력
+        }
+        System.out.println(); // 줄바꿈
+    }
+
     // ex3-6, 배열,
-    // 선언하는 방법 크개 2가지
+    // 선언하는 방법 크게 2가지
     // 자료형[] 배열이름 = new 자료형[크기]; // 기본 방식
     // 자료형 배열이름[] = new 자료형[크기]; // 오래된 방식 (C 스타일)
 
