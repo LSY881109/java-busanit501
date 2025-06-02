@@ -2,6 +2,23 @@ package ch2;
 
 public class Exs_doc {
 
+    // 증감 연산자 예시, 복합 대입 연산자 , a++, ++a , 차이점
+    public static void getIncDecExam() {
+        int a = 10;
+        int b = 20;
+
+        // a++ : 후위 연산자, a의 값을 먼저 사용하고, 나중에 1 증가
+        // ++a : 전위 연산자, a의 값을 먼저 1 증가시키고, 그 다음에 사용
+        System.out.println("a++: " + (a++)); // 10 출력 후, a는 11로 증가
+        System.out.println("결과1 a: " + a); // 11 출력
+        System.out.println("++a: " + (++a)); // 12 출력
+        System.out.println("결과2 a: " + a); // 12 출력
+
+        // 복합 대입 연산자
+        b += 5; // b = b + 5; b는 이제 25
+        System.out.println("b += 5: " + b);
+    }
+
     // 타입 변환
     public static void getTypeExam() {
         long num1 = 100L; // long 타입 변수, 8바이트
@@ -17,6 +34,9 @@ public class Exs_doc {
         // 예시로 확인만.
         byte num5 = (byte) num4;
         System.out.println("num5: " + num5);
+
+        // 기본 형 타입으로 변환 보다는
+        // 나중에 배울, 참조형 타입의 형변환에 대해서 더 많이 사용됨.
         // return "곧 결과 반환 하거나 출력만 할 예정.";
     }
 
