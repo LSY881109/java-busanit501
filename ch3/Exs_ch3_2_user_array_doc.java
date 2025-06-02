@@ -21,11 +21,21 @@ public class Exs_ch3_2_user_array_doc {
         if (userCount < MAX_USERS) {
             System.out.println("이름을 입력하세요: ");
             String name = scanner.nextLine();
+            names[userCount] = name; // 이름 저장
+
             System.out.println("이메일을 입력하세요: ");
             String email = scanner.nextLine();
+            emails[userCount] = email; // 이메일 저장
+
             System.out.println("패스워드를 입력하세요: ");
             String password = scanner.nextLine();
+            passwords[userCount] = password; // 패스워드 저장
+
+            // 현재 날짜와 시간 저장
             String registrationDate = util.date.DateUtil.getCurrentDateTime(); // 현재 날짜와 시간
+            registrationDates[userCount] = registrationDate; // 등록일 저장
+
+            // 회원 수 증가
             userCount++;
             System.out.println("회원이 추가되었습니다: " + name + ", " + email + ", " + registrationDate);
         } else {
