@@ -2,6 +2,11 @@ package ch2;
 
 public class Exs_Main {
     public static void main(String[] args) {
+
+        // 강제 형변환 예시
+        Exs_doc.getTypeExam();
+
+        // EX2-3
         System.out.println("파이널 상수 이용한, 원면적 구하기 예제");
         // 반지름 5.0인 원의 면적 구하기
         String result = Exs.getCircleArea(5.0);
