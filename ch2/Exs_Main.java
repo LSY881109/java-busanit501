@@ -3,6 +3,10 @@ package ch2;
 public class Exs_Main {
     public static void main(String[] args) {
 
+        // EX2-9, 삼항 연산자 예시
+        String result = Exs_doc.getTernaryExam(75);
+        System.out.println("EX2-9, 삼항 연산자 예시: " + result);
+        System.out.println("----------------------------");
         // EX2-7, a++, ++a 예시,
         Exs_doc.getIncDecExam();
 

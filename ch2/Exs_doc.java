@@ -2,6 +2,20 @@ package ch2;
 
 public class Exs_doc {
 
+    // if 문 이용 가능하지만, 조건 연산식으로, 표현.
+    // 삼항 연산자 예시, 조건 ? 참일 때 : 거짓일 때
+    public static String getTernaryExam(int score) {
+        // score가 60 이상이면 "합격", 아니면 "불합격" 문자열 반환
+        String result = (score >= 60) ? "합격" : "불합격";
+        // if 문으로도 가능
+        // if (score >= 60) {
+        // result = "합격";
+        // } else {
+        // result = "불합격";
+        // }
+        return result;
+    }
+
     // 증감 연산자 예시, 복합 대입 연산자 , a++, ++a , 차이점
     public static void getIncDecExam() {
         int a = 10;

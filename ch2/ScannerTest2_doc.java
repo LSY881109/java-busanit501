@@ -3,7 +3,7 @@ package ch2;
 
 import java.util.Scanner;
 
-import util.UserService;
+import util.user.UserService;
 
 // 새로운 ScannerTest2 클래스 만들기.
 // 회원 가입 해보기.
@@ -20,7 +20,7 @@ import util.UserService;
 // 이메일 : {이메일}
 // 패스워드 : {패스워드}
 // 회원 가입 완료되었습니다.ㅇ
-public class ScannerTest2 {
+public class ScannerTest2_doc {
     public static void main(String[] args) {
 
         // 공용으로 사용을 할 스캐너를 정의.
