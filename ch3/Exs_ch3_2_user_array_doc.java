@@ -86,4 +86,25 @@ public class Exs_ch3_2_user_array_doc {
         System.out.println("회원 정보가 수정되었습니다: " + names[index] + ", " + emails[index]);
     } // 회원 수정 메서드
 
+    // 회원 삭제 메서드
+    // 회원 삭제 메서드
+
+    // 회원 더미 데이터 5개 추가하는 메서드
+    public static void addDummyUsers() {
+        for (int i = 0; i < 5; i++) {
+            if (userCount < MAX_USERS) {
+                names[userCount] = "더미회원" + (i + 1);
+                emails[userCount] = "dummy" + (i + 1) + "@example.com";
+                passwords[userCount] = "password" + (i + 1);
+                registrationDates[userCount] = DateUtil.getCurrentDateTime();
+                userCount++;
+            } else {
+                System.out.println("더미 회원 추가 실패: 최대 회원 수 초과");
+                break;
+            }
+        }
+        System.out.println("더미 회원 5명이 추가되었습니다.");
+    }
+    // 회원 더미 데이터 5개 추가하는 메서드
+
 }
