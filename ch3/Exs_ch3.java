@@ -4,10 +4,22 @@ import java.util.Scanner;
 
 public class Exs_ch3 {
 
+    // 중첩 반복문 이용해서 구구단 출력해보기
+    public static void ex3_4() {
+        for (int i = 1; i < 10; i++) { // 단에 대한 반복. 1단에서 9단
+            for (int j = 1; j < 10; j++) { // 각 단의 곱셈
+                System.out.print(i + "*" + j + "=" + i * j); // 구구셈 출력
+                System.out.print('\t'); // 하나씩 탭으로 띄기
+            } // 두번째 for 문
+            System.out.println(); // 한 단이 끝나면 다음 줄로 커서 이동
+        } // 첫번째 for 문
+    }
+
     public static void ex3_3() {
         char a = 'a';
         do {
             System.out.print(a);
+            System.out.println(" , char 타입의 " + a + " -> int 변환시 , 값: " + (int) a + ", 유니코드 값 : " + (int) a);
             // char 타입의 a -> int 변환시 , 값: 97, 유니코드 값 : 97
             a = (char) (a + 1); // a+1 는 int 타입으로 계산되므로, char로 변환
         } while (a <= 'z');
