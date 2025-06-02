@@ -47,7 +47,7 @@ public class MainClass_switch_case {
                     return; // while 루프 종료
                 default:
                     System.out.println("잘못된 입력입니다. 0, 1, 2 중에서 선택해주세요.");
-            }
-        }
-    }
-}
+            } // switch end
+        } // while end
+    } // main end
+} // MainClass_switch_case end
