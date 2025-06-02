@@ -7,6 +7,39 @@ public class Exs_ch3_Main {
         // 공용으로 사용할 스캐너
         Scanner scanner = new Scanner(System.in);
 
+        // Ex3-6-4, 배열을 이용한 회원 관리 프로그램 예시
+        int menu;
+        do {
+            System.out.println("회원 관리 프로그램 예시");
+            System.out.println("=================================================================");
+            System.out.println("1. 회원 추가 , 2. 회원 조회, 3. 회원 수정, 4. 회원 삭제, 0. 종료");
+            System.out.println("=================================================================");
+            System.out.print("메뉴를 선택하세요(0 ~ 4): ");
+            menu = scanner.nextInt();
+            scanner.nextLine(); // 개행 문자 제거
+            switch (menu) {
+                case 1:
+                    Exs_ch3_2_user_array_doc.addUser(scanner); // 회원 추가
+                    break;
+                case 2:
+                    Exs_ch3_2_user_array_doc.viewUsers(); // 회원 조회
+                    break;
+                case 3:
+                    System.out.println("회원 수정 기능은 아직 구현되지 않았습니다.");
+                    break;
+                case 4:
+                    System.out.println("회원 삭제 기능은 아직 구현되지 않았습니다.");
+                    break;
+                case 0:
+                    System.out.println("프로그램을 종료합니다.");
+                    break;
+                default:
+                    System.out.println("잘못된 메뉴 선택입니다. 다시 시도하세요.");
+            }
+
+        } while (menu != 0); // 메뉴가 0이 아닐 때까지 반복
+        System.out.println("============================");
+
         // Ex3-6-3, 이중 배열 예시
         Exs_ch3.ex3_6_3();
         System.out.println("============================");

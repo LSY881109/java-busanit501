@@ -31,5 +31,18 @@ public class Exs_ch3_2_user_array_doc {
         } else {
             System.out.println("회원 수가 최대치를 초과했습니다.");
         }
-    }
+    } // 회원 추가 메서드
+
+    // 회원 조회 메서드
+    public static void viewUsers() {
+        if (userCount == 0) {
+            System.out.println("등록된 회원이 없습니다.");
+            return;
+        }
+        System.out.println("등록된 회원 목록:");
+        for (int i = 0; i < userCount; i++) {
+            System.out.println((i + 1) + ". " + names[i] + ", " + emails[i] + ", " + registrationDates[i]);
+        }
+    } // 회원 조회 메서드
+
 }
