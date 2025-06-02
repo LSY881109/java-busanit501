@@ -9,8 +9,12 @@ public class Exs_ch3_Main {
         // 공용으로 사용할 스캐너
         Scanner scanner = new Scanner(System.in);
 
+        // Ex3-5, continue 확인 , 다음 반복으로 넘어가는 예시,
+        Exs_ch3.ex3_5(scanner);
+        System.out.println("============================");
+
         // Ex3-4 , 중첩 반복문 이용해서 구구단 출력해보기
-        Exs_ch3.ex3_4();
+        // Exs_ch3.ex3_4();
 
         // Ex3-3 퀴즈 ,do while 문 예시 확인.
         // Exs_ch3.ex3_3();

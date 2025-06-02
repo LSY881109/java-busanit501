@@ -4,6 +4,22 @@ import java.util.Scanner;
 
 public class Exs_ch3 {
 
+    // ex3-5 , continue 확인 , 다음 반복으로 넘어가는 예시,
+    // 숫자는 5개 입력을하고, 합을 구하는 예시, 음수 또는 0이 입력되면, 새로 입력 함.
+    public static void ex3_5(Scanner scanner) {
+        System.out.println("정수를 5개 입력하세요.");
+        int sum = 0;
+        for (int i = 0; i < 5; i++) {
+            int n = scanner.nextInt();
+            if (n <= 0)
+                continue; // 0이나 음수인 경우 더하지 않고 다음 반복으로 진행
+            else
+                sum += n; // 양수인 경우 덧셈
+        }
+        System.out.println("양수의 합은 " + sum);
+
+    }
+
     // 중첩 반복문 이용해서 구구단 출력해보기
     public static void ex3_4() {
         for (int i = 1; i < 10; i++) { // 단에 대한 반복. 1단에서 9단
