@@ -60,7 +60,8 @@ public class Mini_quiz1_Func {
         }
         System.out.println("등록된 도서 목록:");
         for (int i = 0; i < bookCount; i++) {
-            System.out.println("인덱스 번호 : " + i + ", " + (i + 1) + ". " + bookNames[i] + ", " + authors[i] + ", "
+            System.out.println("인덱스 번호 : " + i + ", " + (i + 1) + ". 도서명 : " + bookNames[i] + ", 저자: " + authors[i]
+                    + ", 출판사: " + publishers[i] + ", 등록일 : "
                     + registrationDates[i]);
         }
     } // 도서 조회 메서드
@@ -133,8 +134,8 @@ public class Mini_quiz1_Func {
         for (int i = 0; i < 5; i++) {
             if (bookCount < MAX_USERS) {
                 bookNames[bookCount] = "더미도서" + (i + 1);
-                authors[bookCount] = "dummy" + (i + 1) + "@example.com";
-                publishers[bookCount] = "password" + (i + 1);
+                authors[bookCount] = "이상용 " + (i + 1) + " 저자";
+                publishers[bookCount] = "상용 출판사" + (i + 1);
                 registrationDates[bookCount] = DateUtil.getCurrentDateTime();
                 bookCount++;
             } else {
