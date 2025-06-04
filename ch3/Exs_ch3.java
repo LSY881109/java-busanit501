@@ -5,12 +5,6 @@ import java.util.Scanner;
 public class Exs_ch3 {
     public static void ex3_7(Scanner scanner) {
         // ex3-7, 퀴즈, 1~n 까지의 합을 구하는 메소드 작성하기.
-        // n은 사용자로부터 입력 받기.
-        System.out.println("1부터 n까지의 합을 구합니다.");
-        System.out.print("n의 값을 입력하세요: ");
-        int n = scanner.nextInt(); // 사용자로부터 n 입력 받기
-        int sum = getSum(n); // 1부터 n까지의 합을 구하는 메소드 호출
-        System.out.println("1부터 " + n + "까지의 합은: " + sum);
 
         int intArray[];
         intArray = new int[5];
