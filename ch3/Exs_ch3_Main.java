@@ -7,8 +7,12 @@ public class Exs_ch3_Main {
         // 공용으로 사용할 스캐너
         Scanner scanner = new Scanner(System.in);
 
+        // Ex3-8, 배열 생성, 조회, 반복문 출력 예시
+        Exs_ch3.ex3_8();
+        System.out.println("============================");
+
         // ex3_7 , 확인 하는 예시 메소드
-        Exs_ch3.ex3_7(scanner);
+        // Exs_ch3.ex3_7(scanner);
         System.out.println("============================");
 
         // 회원 관리 프로그램 예시, ui 그리기,

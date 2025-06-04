@@ -3,14 +3,36 @@ package ch3;
 import java.util.Scanner;
 
 public class Exs_ch3 {
-    public static void ex3_7(Scanner scanner) {
-        // ex3-7, 퀴즈, 1~n 까지의 합을 구하는 메소드 작성하기.
+    // 기본 배열 생성, 조회, 반복문 출력, 배열 타입으로 리턴,
+    public static void ex3_8() {
+        // 기본 1차원 배열 생성.
+        int[] numbers = new int[5]; // 크기 5인 정수형 배열 생성
+        // 배열에 값 할당
+        int[] numbers2 = { 1, 2, 3, 4, 5 }; // 배열 선언과 동시에 값 할당
+        // 첫번째, 각 요소의 값을 하나씩 접근 하는 방법,
+        // numbers2 의 인덱스 3 을 조회,
+        int value = numbers2[3]; // 인덱스 3의 값 조회
+        System.out.println("numbers2[3]의 값은: " + value); // 4 출력
 
-        int intArray[];
-        intArray = new int[5];
-        int max = 0; // 현재 가장 큰 수
+        // 두번째, 향상된 for 문 이용해서, 배열의 각 요소를 출력하는 방법
+        for (int number : numbers2) {
+            System.out.println(number + " "); // 1 2 3 4 5 출력
+        }
+    }
+
+    public static void ex3_7(Scanner scanner) {
+        // ex3-7, 퀴즈, 양수 5개 받아서 배열 저장 후, 제일 큰 수 구하는 메소드 작성하기.
+        // 디버깅 하는 방법 에 대해서 이야기하기.
+        // 디버깅 모드에서, 각 단계로 들어가기, 다음 단계 등으로 실행 하면서
+        // 각 단계별 변수의 값 비교 및 확인.
+
+        // 확인시, 디버깅(검사), 순서도로 확인 해보기.
+        int[] intArray; // 정수형 배열 선언 만 하기.
+        intArray = new int[5]; // 크기 5인 정수형 배열 생성
+        int max = 0; // 현재 가장 큰 수, 상태 변수,
         System.out.println("양수 5개를 입력하세요.");
         for (int i = 0; i < 5; i++) {
+            // intArray = [1,2,3,4,5]; // 예시로 5개 입력 받음.
             intArray[i] = scanner.nextInt();
             // 입력 받은 정수를 배열에 저장
             if (intArray[i] > max)
