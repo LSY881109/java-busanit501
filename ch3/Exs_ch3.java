@@ -20,6 +20,14 @@ public class Exs_ch3 {
         }
     }
 
+    // int[] : 리턴 타입 정수를 요소로 가지는 배열 타입.
+    // ex3_8_return : 메서드 이름 .
+    public static int[] ex3_8_return() {
+        // 배열을 리턴하는 예시
+        int[] numbers = { 1, 2, 3, 4, 5 }; // 배열 선언과 동시에 값 할당
+        return numbers; // 배열 리턴
+    }
+
     public static void ex3_7(Scanner scanner) {
         // ex3-7, 퀴즈, 양수 5개 받아서 배열 저장 후, 제일 큰 수 구하는 메소드 작성하기.
         // 디버깅 하는 방법 에 대해서 이야기하기.
