@@ -3,6 +3,71 @@ package ch3;
 import java.util.Scanner;
 
 public class Exs_ch3 {
+    public static void ex3_7(Scanner scanner) {
+        // ex3-7, 퀴즈, 1~n 까지의 합을 구하는 메소드 작성하기.
+        // n은 사용자로부터 입력 받기.
+        System.out.println("1부터 n까지의 합을 구합니다.");
+        System.out.print("n의 값을 입력하세요: ");
+        int n = scanner.nextInt(); // 사용자로부터 n 입력 받기
+        int sum = getSum(n); // 1부터 n까지의 합을 구하는 메소드 호출
+        System.out.println("1부터 " + n + "까지의 합은: " + sum);
+
+        int intArray[];
+        intArray = new int[5];
+        int max = 0; // 현재 가장 큰 수
+        System.out.println("양수 5개를 입력하세요.");
+        for (int i = 0; i < 5; i++) {
+            intArray[i] = scanner.nextInt();
+            // 입력 받은 정수를 배열에 저장
+            if (intArray[i] > max)
+                max = intArray[i]; // max 변경
+        }
+        System.out.print("가장 큰 수는 " + max + "입니다.");
+    }
+
+    // 회원 추가 관련프로그램 UI 그리는 메소드
+    public static void ex_user_ui(Scanner scanner) {
+        // Ex3-6-4, 배열을 이용한 회원 관리 프로그램 예시
+        int menu;
+        do {
+            System.out.println("회원 관리 프로그램 예시");
+            System.out.println("=================================================================");
+            System.out.println("1. 회원 추가 , 2. 회원 조회, 3. 회원 수정, 4. 회원 삭제, 5.더미 데이터 추가 5개, 6. 검색기능,  0. 종료");
+            System.out.println("=================================================================");
+            System.out.print("메뉴를 선택하세요(0 ~ 6): ");
+            menu = scanner.nextInt();
+            scanner.nextLine(); // 개행 문자 제거
+            switch (menu) {
+                case 1:
+                    Exs_ch3_2_user_array_doc.addUser(scanner); // 회원 추가
+                    break;
+                case 2:
+                    Exs_ch3_2_user_array_doc.viewUsers(); // 회원 조회
+                    break;
+                case 3:
+                    Exs_ch3_2_user_array_doc.updateUser(scanner); // 회원 수정
+                    break;
+                case 4:
+                    Exs_ch3_2_user_array_doc.deleteUser(scanner); // 회원 삭제
+                    break;
+                case 5:
+                    Exs_ch3_2_user_array_doc.addDummyUsers(); // 더미 데이터 추가
+                    System.out.println("더미 데이터 5개가 추가되었습니다.");
+                    break;
+                case 6:
+                    Exs_ch3_2_user_array_doc.searchUser(scanner); // 회원 검색
+                    System.out.println("회원 검색 기능이 실행되었습니다.");
+                    break;
+                case 0:
+                    System.out.println("프로그램을 종료합니다.");
+                    break;
+                default:
+                    System.out.println("잘못된 메뉴 선택입니다. 다시 시도하세요.");
+            }
+
+        } while (menu != 0); // 메뉴가 0이 아닐 때까지 반복
+    }
+
     // ex3--6-3, 이중 배열 예시
     public static void ex3_6_3() {
         // 기본 문법
