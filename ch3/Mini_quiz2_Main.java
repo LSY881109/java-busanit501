@@ -1,0 +1,23 @@
+package ch3;
+
+import java.util.Scanner;
+
+public class Mini_quiz2_Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        // 클래스명.메서드 부분에, 이해가 안가요,
+        // 디버깅 하기,
+        // 1) 중단점 찍기, 코드 라인 번호 앞에 클릭 시, 빨간점이 생성.
+        // 2) 실행 , 디버깅 시작, f5
+        // 3) 디버깅 중, f10 : 단위 실행, 다음 단계로 넘어가기
+        // 언제 다음 단계로 넘어가냐?, 메서드 진입, 반복문에 진입 아닌 것들,
+        // 출력, 변수 정의, 그냥 넘어가기,
+        // f11 : 메서드 내부로 이동(단계정보), 메서드, 반복문에 보통 들어가고, 다른 기능은 가급적 안들어가기
+        // 만약, 들어가면, 궁금하지 않은 메서드의 구체적인 실행 단계를 다봐야 함. 피로도 상승함.
+        // shift + f11 : 메서드 나가기(단계 출력)
+        // 만약, 잘못 들어가거나, 다시 나올 경우에는
+        Mini_quiz2_Func.quiz1(scanner);
+        scanner.close();
+
+    }
+}
