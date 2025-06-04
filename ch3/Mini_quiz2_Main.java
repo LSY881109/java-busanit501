@@ -19,7 +19,7 @@ public class Mini_quiz2_Main {
         // Mini_quiz2_Func.quiz1(scanner);
 
         // 퀴즈2, 3x3 배열을 만들어 모든 요소에 1~9 채우고 출력
-        Mini_quiz2_Func.quiz2();
+        // Mini_quiz2_Func.quiz2();
         scanner.close();
 
         // 퀴즈3, 문자열 배열을 메서드로 받아 가장 긴 문자열을 반환

@@ -91,6 +91,13 @@ public class Mini_quiz2_Func {
 
             for (int j = 0; j < length; j++) {
                 int index = (int) (Math.random() * characters.length()); // 0 ~ 25 사이의 랜덤 인덱스
+                // sb : 문자열 배열,
+                // charAt(0), 문자열의 인덱스에 해당하는 문자 가져오기
+                // characters.charAt(index) : 문자열 중에서, 길이가 26, 인덱스 치면, 0~25
+                // characters.charAt(0) -> 'a',
+                // characters.charAt(1) -> 'b',
+                // ..., characters.charAt(25) -> 'z'
+                // sb.append('a'); // 랜덤 문자 추가
                 sb.append(characters.charAt(index)); // 랜덤 문자 추가
             }
 
