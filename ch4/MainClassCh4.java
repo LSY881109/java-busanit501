@@ -19,5 +19,12 @@ public class MainClassCh4 {
         // 순서3, 기능 확인. 객체명.메소드명(); 이런 형식으로 사용함,
         // 이전에 정적인 메소드는 , 사용 모양 : 클래스명.메소드명() , 비교.
         car1.showInfo();
+
+        // 마치 공장에서 자동차를 찍어 내듯이, 또다른 인스턴스를 생성.
+        Car car2 = new Car(); // 기본 생성자 호출
+        car2.model = "k5세단";
+        car2.price = "3000만원";
+        car2.company = "기아자동차";
+        car2.showInfo();
     }
 }
