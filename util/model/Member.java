@@ -25,4 +25,17 @@ public class Member {
         System.out.println("회원 패스워드 : " + this.password);
         System.out.println("회원 등록일 : " + this.regDate);
     }
+
+    // 검색을 위해서, 해당 이름과, 이메일 정보를 조회 하는 기능,
+    // 이름 조회 기능, 게터 , 자동 생성, 또는 라이브러리 사용해서, 자동 생성된 기능을 이용할 예정.
+    // 또는 수동으로 만들어서 사용도 함.
+    // 결론, 나중에 라이브러리 많이 사용함.,
+    public String getName() {
+        return name;
+    }
+
+    // 이메일 조회 기능, 게터 getter
+    public String getEmail() {
+        return email;
+    }
 }

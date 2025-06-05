@@ -252,9 +252,18 @@ public class Exs_ch3_2_user_array_doc {
             // 배열.contins() 메서드를 사용하여 검색어가 이름 또는 이메일에 포함되어 있는지 확인
             // contains() 메서드는 문자열에 특정 문자열이 포함되어 있는지 확인하는 메서드입니다.
             // 예시) names[i].contains(searchQuery) -> names[0] = "이상용" , searchQuery = "이상용"
-            if (names[i].contains(searchQuery) || emails[i].contains(searchQuery)) {
-                System.out.println("검색 결과: " + (i + 1) + ". " + names[i] + ", " + emails[i] + ", "
-                        + registrationDates[i]);
+            // if (names[i].contains(searchQuery) || emails[i].contains(searchQuery)) {
+            // System.out.println("검색 결과: " + (i + 1) + ". " + names[i] + ", " + emails[i] +
+            // ", "
+            // + registrationDates[i]);
+            // found = true;
+            // }
+            // 변경, Member , getName(), getEmail() 메서드 사용, 이용해서 검색 기능 구현하기.
+            if (members[i].getName().contains(searchQuery) || members[i].getEmail().contains(searchQuery)) {
+                // System.out.println("검색 결과: " + (i + 1) + ". " + names[i] + ", " + emails[i] +
+                // ", "
+                // + registrationDates[i]);
+                members[i].showInfo(); // 회원 정보 출력
                 found = true;
             }
         }
