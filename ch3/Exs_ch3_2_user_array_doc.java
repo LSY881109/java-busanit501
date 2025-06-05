@@ -166,21 +166,40 @@ public class Exs_ch3_2_user_array_doc {
             System.out.println("잘못된 인덱스입니다.");
             return; // 잘못된 인덱스를 입력시, 삭제 기능을 종료 한다는 의미.
         }
-        // 삭제할 회원 정보 출력
-        System.out.println("삭제할 회원 정보: " + names[index] + ", " + emails[index] + ", " + registrationDates[index]);
 
+        // 삭제할 회원 정보 출력
+        // members 의 모양 : members = {member1, member2, member3, ...}
+        // 배열에서 원소를 꺼내서, 다시 변수에 담을 때, 해당 클래스 타입으로 담기.
+        Member member = members[index];
+        System.out.println("삭제할 회원 정보: ");
+        member.showInfo(); // 회원 정보 출력
+
+        // 삭제 하는 형식, 기존에는 4개의 배열에 , 해당 인덱스 값에 각각 null 4번 입력 했다면,
+        // members 배열에 하나의 값에만 null 입력.
+        members[index] = null; // 해당 인덱스의 회원 정보 삭제
+        // 0 1 2 3 4
+        // members 의 모양 : members = {member1, member2, member3, member4, member5 ...}
+        // 삭제 시뮬레이션
+        // 0 1삭제 2 3 4
+        // members 의 모양 : members = {member1, member2 삭제, member3, member4, member5 ...}
+        // 0 1 2 3 4
+        // members 의 모양 : members = {member1, 비워짐, member3, member4, member5 ...}
         // 해당 인덱스의 회원 정보를 삭제하고, 뒤에 있는 회원 정보를 앞으로 이동
         for (int i = index; i < userCount - 1; i++) {
-            names[i] = names[i + 1];
-            emails[i] = emails[i + 1];
-            passwords[i] = passwords[i + 1];
-            registrationDates[i] = registrationDates[i + 1];
+            // 예시, 인덱스 1번 삭제, userCount = 5, 범위 1 이상 4 미만
+            // names[i] = names[i + 1];
+            // emails[i] = emails[i + 1];
+            // passwords[i] = passwords[i + 1];
+            // registrationDates[i] = registrationDates[i + 1];
+            members[i] = members[i + 1]; // 다음 인덱스의 회원 정보를 현재 인덱스로 이동
         }
         // 마지막 회원 정보는 null로 설정
-        names[userCount - 1] = null;
-        emails[userCount - 1] = null;
-        passwords[userCount - 1] = null;
-        registrationDates[userCount - 1] = null;
+        // names[userCount - 1] = null;
+        // emails[userCount - 1] = null;
+        // passwords[userCount - 1] = null;
+        // registrationDates[userCount - 1] = null;
+        // 마지막 인덱스의 회원 정보는 null로 설정
+        members[userCount - 1] = null; // 마지막 인덱스의 회원 정보 삭제
 
         // 회원 수 감소
         userCount--;
