@@ -46,6 +46,14 @@ public class MainClassCh4 {
         System.out.println("phone1 주소: " + System.identityHashCode(phone1));
         System.out.println("phone2 주소: " + System.identityHashCode(phone2));
 
+        // 반복문을 이용해서, 순회해서 출력.
+        for (int i = 0; i < phones.length; i++) {
+            // 각 요소에 있는 객체의 정보를 출력
+            // phones[0] -> phone1 -> showInfo();
+            phones[i].showInfo();
+            System.out.println("-----------------");
+        }
+
         // 문자열 타입을 요소로 가지는 배열.
         String[] carModels = { "suv", "k5세단", "아반떼", "소나타", "그랜저" };
         // 정수 타입을 요소로 가지는 배열.
