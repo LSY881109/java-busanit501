@@ -56,6 +56,15 @@ public class Exs_ch3_2_user_array_doc {
     static String[] emails = new String[MAX_USERS];
     static String[] passwords = new String[MAX_USERS];
     static String[] registrationDates = new String[MAX_USERS];
+
+    // 추가작업-1,개요
+    // 클래스 타입으로 데이터를 모아놓고,
+    // 배열에 폰 클래스 타입으로 담는 작업? 퀴즈로 했음.
+    // 0) 콘솔에서 입력 받은 정보들을 클래스에 담기.
+    // 1) 회원 정보를 담아 둘 클래스를 정의, Member 클래스 만들기.
+    // 1)-2 , 멤버 : 이름, 이메일, 패스워드, 등록일 , 기능 : 각 정보를 보여주는 기능.
+    // 2) 회원 클래스를 담아 둘 배열를 생성하기.
+
     // 상태 변수,
     static int userCount = 0; // 현재 등록된 회원 수
 
