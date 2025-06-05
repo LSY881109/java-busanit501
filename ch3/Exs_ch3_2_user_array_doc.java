@@ -60,6 +60,7 @@ public class Exs_ch3_2_user_array_doc {
 
     // Member 클래스를 담아 둘 배열 생성. 크기는 동일하게 100명으로 정하기.
     static Member[] members = new Member[MAX_USERS];
+    // members 의 모양 : members = {member1, member2, member3, ...}
 
     // 추가작업-1,개요
     // 클래스 타입으로 데이터를 모아놓고,
@@ -131,21 +132,27 @@ public class Exs_ch3_2_user_array_doc {
         }
         System.out.println("수정할 회원의 이름을 입력하세요: ");
         String name = scanner.nextLine();
-        names[index] = name; // 이름 수정
+        // names[index] = name; // 이름 수정
 
         System.out.println("수정할 회원의 이메일을 입력하세요: ");
         String email = scanner.nextLine();
-        emails[index] = email; // 이메일 수정
+        // emails[index] = email; // 이메일 수정
 
         System.out.println("수정할 회원의 패스워드를 입력하세요: ");
         String password = scanner.nextLine();
-        passwords[index] = password; // 패스워드 수정
+        // passwords[index] = password; // 패스워드 수정
 
         // 현재 날짜와 시간 저장
         String registrationDate = DateUtil.getCurrentDateTime();
-        registrationDates[index] = registrationDate; // 등록일 수정
+        // registrationDates[index] = registrationDate; // 등록일 수정
 
-        System.out.println("회원 정보가 수정되었습니다: " + names[index] + ", " + emails[index]);
+        // 변경할 정보를 담아둘 Member 객체 생성
+        Member member = new Member(name, password, email, registrationDate);
+        // 해당 인덱스에 수정된 회원 정보 저장
+        members[index] = member;
+
+        System.out.println("회원 정보가 수정되었습니다: " + name + ", " + email + ", "
+                + registrationDate);
     } // 회원 수정 메서드
 
     // 회원 삭제 메서드
