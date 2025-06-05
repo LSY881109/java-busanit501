@@ -112,8 +112,10 @@ public class Exs_ch3_2_user_array_doc {
         }
         System.out.println("등록된 회원 목록:");
         for (int i = 0; i < userCount; i++) {
-            System.out.println("인덱스 번호 : " + i + ", " + (i + 1) + ". " + names[i] + ", " + emails[i] + ", "
-                    + registrationDates[i]);
+            // System.out.println("인덱스 번호 : " + i + ", " + (i + 1) + ". " + names[i] + ", "
+            // + emails[i] + ", "
+            // + registrationDates[i]);
+            members[i].showInfo();
         }
     } // 회원 조회 메서드
 
