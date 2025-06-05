@@ -5,7 +5,7 @@ import java.util.Scanner;
 import util.date.*;
 import util.model.Member;
 
-public class Exs_ch3_2_user_array_doc {
+public class Exs_ch3_2_user_array_doc_backup1 {
 
     // 퀴즈,
     // 아래 코드를 이용해서,
@@ -77,25 +77,20 @@ public class Exs_ch3_2_user_array_doc {
         if (userCount < MAX_USERS) { // 기본 유효성 체크
             System.out.println("이름을 입력하세요: ");
             String name = scanner.nextLine();
+            names[userCount] = name; // 이름 저장
 
             System.out.println("이메일을 입력하세요: ");
             String email = scanner.nextLine();
+            emails[userCount] = email; // 이메일 저장
 
             System.out.println("패스워드를 입력하세요: ");
             String password = scanner.nextLine();
+            passwords[userCount] = password; // 패스워드 저장
 
             // 현재 날짜와 시간 저장
             String registrationDate = DateUtil.getCurrentDateTime();
+            registrationDates[userCount] = registrationDate; // 등록일 저장
 
-            // public Member(String name, String password, String email, String regDate) {
-            // 사용자들로 부터 입력 받은 정보를, 모델 클래스의 인스턴스 생성 하는 곳에 사용.
-            Member member = new Member(name, password, email, registrationDate);
-
-            // 배열의 단점, 인덱스의 위치 조정 자동으로 안해줌.
-            // 앞에 삭제시, 삭제후 인덱스 이동을 수동을 했음. 그래서,
-            // 지금 배열의 불편한 부분을 감수하고, -> 배열의 업그레이드 버전 -> arrayList 등으로 해결.
-
-            members[userCount] = member;
             // 회원 수 증가
             userCount++;
             System.out.println("회원이 추가되었습니다: " + name + ", " + email + ", " + registrationDate);
