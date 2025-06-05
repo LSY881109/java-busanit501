@@ -211,10 +211,26 @@ public class Exs_ch3_2_user_array_doc {
     public static void addDummyUsers() {
         for (int i = 0; i < 5; i++) {
             if (userCount < MAX_USERS) {
-                names[userCount] = "더미회원" + (i + 1);
-                emails[userCount] = "dummy" + (i + 1) + "@example.com";
-                passwords[userCount] = "password" + (i + 1);
-                registrationDates[userCount] = DateUtil.getCurrentDateTime();
+                // names[userCount] = "더미회원" + (i + 1);
+                // emails[userCount] = "dummy" + (i + 1) + "@example.com";
+                // passwords[userCount] = "password" + (i + 1);
+                // registrationDates[userCount] = DateUtil.getCurrentDateTime();
+                // Member 클래스를 이용해서, 더미 회원 정보 생성
+                // 방법1, 객체를 따로 생성 후 배열에 추가
+                Member dummyMember = new Member(
+                        "더미회원" + (i + 1),
+                        "password" + (i + 1),
+                        "dummy" + (i + 1) + "@example.com",
+                        DateUtil.getCurrentDateTime());
+                // members 배열에 더미 회원 정보 추가
+                members[userCount] = dummyMember;
+
+                // 방법2, 한번에 바로 넣기
+                // members[userCount] = new Member(
+                // "더미회원" + (i + 1),
+                // "password" + (i + 1),
+                // "dummy" + (i + 1) + "@example.com",
+                // DateUtil.getCurrentDateTime());
                 userCount++;
             } else {
                 System.out.println("더미 회원 추가 실패: 최대 회원 수 초과");
