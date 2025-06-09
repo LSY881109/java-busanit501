@@ -30,4 +30,12 @@ public class StaticEx4 {
     public static void showInfoTotal() {
         System.out.println("총 학생수 : " + studentCount);
     }
+
+    // 주의사항,
+    // 1) 인스턴스 변수, 스태틱 변수 구분, -> static 있냐? 없냐?
+    // 2) 스태틱 변수에 접근시, 클래스명으로 접근 해야하고,
+    // 3) 인스턴스 변수 명으로 접근 안하기. 왜? 개념이 메모리 적으로 저장 공간의 위치가 다름.
+    // A a = new A(); , a : 인스턴스명 , A : 클래스명,
+    // a.studentCount -> 접근 안하기.
+    // 클래스명.studentCount -> 접근하기.
 }
