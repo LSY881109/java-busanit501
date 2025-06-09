@@ -1,8 +1,8 @@
 package d250609.ch4;
 
-public class GetterSetterExMain {
+public class GetterSetterEx2Main {
     public static void main(String[] args) {
-        GetterSetterEx getterSetterEx = new GetterSetterEx("이상용", "lsy@naver.com", "1234");
+        GetterSetterEx2 getterSetterEx = new GetterSetterEx2("이상용", "lsy@naver.com", "1234");
         // public, 외부에서 직접 데이터에 접근.
         // 설계 클래스에서 -> name에 대해서, public -> private 변경함.
         // 직접 접근 , 수정이 불가.

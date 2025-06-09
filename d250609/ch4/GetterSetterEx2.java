@@ -1,13 +1,13 @@
 package d250609.ch4;
 
-public class GetterSetterEx {
+public class GetterSetterEx2 {
     // public String name; // 이름이 외부에 직접 접근이 가능한 문제점 발견
     private String name;
     private String email;
     private String password;
 
     // 매개변수가 3개인 생성자
-    public GetterSetterEx(String name, String email, String password) {
+    public GetterSetterEx2(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;
