@@ -18,5 +18,14 @@ public class PublicEx1 {
     public String eamil; // 모든 클래스에서 접근 가능.
     String phone; // default 생략 같은 패키지에서만 접근 가능함.
     protected String hobby; // 같은 패키지 또는 상속 관계 클래스에서만 접근 가능.
-    
+
+    // 기능 만들기.
+    public void showInfo() {
+        System.out.println("이름 : " + this.name);
+        System.out.println("이메일 : " + this.eamil);
+        System.out.println("폰번호 : " + this.phone);
+        System.out.println("취미 : " + this.hobby);
+
+    }
+
 }
