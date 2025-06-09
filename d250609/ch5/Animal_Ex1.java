@@ -12,6 +12,7 @@ public class Animal_Ex1 { // 부모클래스
     // 매개변수가 있는 생성자를 만들 경우에는 , 기본 생성자를 더이상 지원을 안해줌.
     public Animal_Ex1() {
     }
+    //
 
     // 매개변수가 1개인 생성자.
     public Animal_Ex1(String name) {

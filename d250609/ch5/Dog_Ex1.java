@@ -20,6 +20,7 @@ public class Dog_Ex1 extends Animal_Ex1 { // 자식 클래스
     // 생성자 만들기, 매개변수, 2개
     // 주의사항, 기본 생성자를 더이상 지원을 안해줌.
     public Dog_Ex1() { // 부모의 생성자가 없어? 기본 생성자가 없다고 경고함.
+        super(); // 생략이 되어 있음.
     };
 
     public Dog_Ex1(String name, String nation) {
@@ -27,8 +28,8 @@ public class Dog_Ex1 extends Animal_Ex1 { // 자식 클래스
         // 부모를 호출하는 키워드 필요함. : super()
         // 부모 클래스에서, 기본 생성자는 만들어줌.
         // 단, 매개변수 생성자가 없을 경우에는
+        // super();
         super(name);
-
         // this , 현재 본인의 인스턴스를 가리킴 : Dog_Ex1
         this.nation = nation;
     }
