@@ -5,5 +5,9 @@ public class InheritanceMain_Ex1 {
         // A a = new A();
         Dog_Ex1 dog_Ex1 = new Dog_Ex1();
         dog_Ex1.speak();
+        System.out.println("====================================");
+        // 2번째 멍멍이 인스턴스
+        Dog_Ex1 dog_Ex12 = new Dog_Ex1("비글멍멍이", "영국");
+        dog_Ex12.showInfo();
     }
 }

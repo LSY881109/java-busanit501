@@ -4,6 +4,7 @@ public class Inheritance_Ex1 {
     // 상속 , 기본 개념,
     // 부모 클래스와 자식 클래스의 관계
     // 필드, 메서드 상속 및 오버라이딩(새기능으로 고쳐 쓰기)
+
     // super ? , 부모를 가리키는 키워드
     // this, 자기 자신의 인스턴스를 가리키는 키워드
     // protected 이용한 접근방법 확인.
@@ -23,5 +24,7 @@ public class Inheritance_Ex1 {
     // public class 자식클래스명 extends 부모클래스명 {}
     // 부모 클래스 : Animal, 자식 클래스 : Dog
     //
+    // 주의사항
+    // 1) 상속시, 부모의 초기화가 먼저 되고, 자식의 초기화가 이루어진다.
 
 }
