@@ -28,4 +28,5 @@ public class Upcasting_Ex1 {
     // 질문? dogAni 는 Animal?정답 Dog?
     // 질문 ? 실수 100.0 는 실수 ?정답 정수 ?
     // double result = 100;
+
 }
