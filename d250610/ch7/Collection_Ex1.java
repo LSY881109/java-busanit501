@@ -37,6 +37,16 @@ public class Collection_Ex1 {
         }
         System.out.println("======================================================");
 
+        // 자주 사용하는 옵션
+        // add(E e) : 요소 추가 , list.add("apple")
+        // get(int index) : 인덱스 위치의 요소 반환 , list.get(0)
+        // set(int index, E e) : 인덱스 위치의 요소 변경, 설정. , list(1,"banana"),
+        // remove(int index) : 인덱스 위치의 요소를 삭제 , list.remove(0), 또는 list.remove("apple")
+        // size() : 요소 개수 반환 , list.size()
+        // contains(Object o) : 포함 여부 확인, list.contains("apple")
+        // isEmpty() : 비어 있는지 확인, list.Empty();
+        //
+
         // 2
         // HashSet
         // 생성
@@ -52,6 +62,21 @@ public class Collection_Ex1 {
         for (Integer integer : set) {
             System.out.println("반복문을 이용해서 집합에 담아져 있는 값을 출력해보기 : " + set);
         }
+
+        // 자주 사용하는 옵션
+        // add(E e) : 요소 추가 , set.add("apple")
+        // remove(int index) : 인덱스 위치의 요소를 삭제 , set.remove(0), 또는 set.remove("apple")
+        // size() : 요소 개수 반환 , set.size()
+        // contains(Object o) : 포함 여부 확인, set.contains("apple")
+        // isEmpty() : 비어 있는지 확인, list.Empty();
+        // clear() : 모든 요소 삭제, set.clear();
+        // iterator 반복자 패턴 , 전체 탐색용으로 사용함.
+        // Iterator<String> it = set.iterator();
+        // while (it.hasNext()) {
+        // String s = it.next();
+        // System.out.println("출력 확인 : " + s)
+        // }
+
         System.out.println("======================================================");
         // 3
         // HashMap
@@ -72,6 +97,26 @@ public class Collection_Ex1 {
             System.out.println(" 키의 값 : " + entry.getKey() + ", value의 값: " + entry.getValue());
 
         }
+
+        // 자주 사용하는 옵션
+        // put (K key, V value) : 키-값 형태로 추가 , map.put("a", 100)
+        // get(Object key) : 키에 해당하는 값 반환 형태.
+        // remove(Object key) : 키-값 쌍 삭제 , map.remove("a")
+
+        // size() : 요소 개수 반환 , map.size()
+        // containsKey(Object key) : 키 존재 여부, map.containsKey("name")
+        // containsValue(Object value) : 키 존재 여부, map.containsValue("value")
+        // isEmpty() : 비어 있는지 확인, map.Empty();
+        // clear() : 모든 요소 삭제, map.clear();
+        // keySet() : 모든 키 set 반환
+        // values() : 모든 값 collection 으로 반환 ,
+        //
+        // entrySet() : 키와 값을 모두 조회 가능한 ,
+        // for (Map.Entry<String,String>entry : map.entrySet()) {
+        // System.out.println(" 키의 값 : " + entry.getKey() + ", value의 값: " +
+        // entry.getValue());
+        // }
+
         System.out.println("======================================================");
     }
 }
