@@ -18,7 +18,12 @@ public class ShapeMainEx1 {
         // (부모 타입) (인스턴스 변수 명) = new 자식클래스명();
         // (인스턴스 변수 명) 의 타입? -> 정답 : 부모 타입.
         // (인스턴스 변수 명) 으로 메소드 , draw() 사용시 누구꺼 사용하나요?
-        // 정답 ? 부모? 자식?
+        // 정답 ? 부모? 자식ㅇ ,
+        // 가상메소드 ? 부모, 자식에 같은 메소드가 있다면, 자식의 메소드를 이용하는 것.
+        ShapeEx1 shapeEx12 = new CircleEx1(); // 자식 타입 -> 부모 타입 , 형변환, 업 캐스팅
+        ShapeEx1 shapeEx13 = new RectangleEx1();
+        shapeEx12.draw();
+        shapeEx13.draw();
 
     }
 }
