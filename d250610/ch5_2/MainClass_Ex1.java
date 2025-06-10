@@ -30,7 +30,14 @@ public class MainClass_Ex1 {
                 dog.sound();
             } else if (animal_Ex1 instanceof Cat_Ex1) {
                 Cat_Ex1 cat = (Cat_Ex1) animal_Ex1;
+                // 부모 클래스 (추상클래스), 재정의
                 cat.sound();
+                // 부모 클래스 기본 기능 사용
+                cat.eat();
+                // Moveable , 인터페이스를 구현, 기능 추가
+                cat.move();
+                // Outable , 인터페이스를 구현, 기능 추가
+                cat.out();
             }
 
             else if (animal_Ex1 instanceof Mongkey_Ex1) {
