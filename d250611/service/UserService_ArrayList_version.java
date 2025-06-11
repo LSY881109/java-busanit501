@@ -6,7 +6,7 @@ import java.util.Scanner;
 import d250611.util.DateUtil;
 import util.model.Member;
 
-public class UserService {
+public class UserService_ArrayList_version {
     static final int MAX_USERS = 100; // 최대 회원 수
 
     // Member 클래스를 담아 둘 배열 생성. 크기는 동일하게 100명으로 정하기.
