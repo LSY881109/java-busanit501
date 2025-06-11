@@ -22,7 +22,7 @@ import java.io.File;
 public class FileTest_Ex1 {
     public static void main(String[] args) {
         // data.txt 가 존재하는지 확인 하는 예시
-        File file = new File("data.txt");
+        File file = new File("test.txt");
         System.out.println("파일의 존재 여부 : " + file.exists());
     }
 }
