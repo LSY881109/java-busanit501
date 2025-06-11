@@ -14,4 +14,7 @@ public class Generic_Ex1 {
     // stringBox.set("hi");
     // String s = stringBox.get();
 
+    // 많이 사용하는 옵션 예시
+    // <T> : 타입 파라미터, 어떤 타입이든 받을 수 있음.
+
 }
