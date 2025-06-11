@@ -1,15 +1,20 @@
 package d250611.service;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-import util.date.DateUtil;
+import d250611.util.DateUtil;
 import util.model.Member;
 
 public class UserService {
     static final int MAX_USERS = 100; // 최대 회원 수
 
     // Member 클래스를 담아 둘 배열 생성. 크기는 동일하게 100명으로 정하기.
-    static Member[] members = new Member[MAX_USERS];
+    // 변경1, 기존 배열 -> 컬렉션으로 변경,
+    // 전
+    // static Member[] members = new Member[MAX_USERS];
+    // 후
+    private static ArrayList<Member> members = new ArrayList<>();
     static int userCount = 0; // 현재 등록된 회원 수
 
     // 회원 추가 메서드
@@ -29,7 +34,12 @@ public class UserService {
 
             Member member = new Member(name, password, email, registrationDate);
 
-            members[userCount] = member;
+            // 변경2. 기존 배열에서 추가 -> 컬렉션에서 추가
+            // 전
+            // members[userCount] = member;
+            // 후
+            members.add(member);
+
             // 회원 수 증가
             userCount++;
             System.out.println("회원이 추가되었습니다: " + name + ", " + email + ", " + registrationDate);
@@ -45,9 +55,18 @@ public class UserService {
             return; // 등록된 회원이 없을 때, 조회 기능 종료, 메서드(함수)를 나가기
         }
         System.out.println("등록된 회원 목록:");
-        for (int i = 0; i < userCount; i++) {
-            members[i].showInfo();
+
+        // 변경3. 기존 배열에서 -> 컬렉션으로 수정.
+        // 전
+        // for (int i = 0; i < userCount; i++) {
+        // members[i].showInfo();
+        // }
+        // 후
+        for (int i = 0; i < members.size(); i++) {
+            System.out.println("인덱스 번호 : " + i);
+            members.get(i).showInfo();
         }
+
     } // 회원 조회 메서드
 
     // 회원 수정 메서드
