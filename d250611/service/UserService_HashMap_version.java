@@ -91,8 +91,8 @@ public class UserService_HashMap_version {
         // members.entrySet() -> 기능을 사용하면, 키와 값을 가지는 하나의 테이블 정보를 제공해줌.
         // 위의 정보 테이블에서, 하나의 그룹을 (키,값)의 형태로 되어 있음.
         for (Map.Entry<Integer, Member> entry : members.entrySet()) {
-            System.err.println("인덱스 번호: " + entry.getKey());
-            System.err.println("회원 정보");
+            System.out.println("인덱스 번호: " + entry.getKey());
+            System.out.println("회원 정보");
             entry.getValue().showInfo();
         }
 
@@ -253,6 +253,11 @@ public class UserService_HashMap_version {
             // }
             // 후
             // 맵에서, 해당 키에 해당하는 값의 멤버를 가져오고, 메일과 이름으로 검색 해보기
+            if (members.get(i).getName().contains(searchQuery) ||
+                    members.get(i).getEmail().contains(searchQuery)) {
+                members.get(i).showInfo();
+                found = true;
+            }
         }
 
         if (!found) { // 검색 결과가 있을 경우, 실행이 안됨, found = true; -> false;
