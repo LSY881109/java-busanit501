@@ -15,8 +15,8 @@ public class InputOutputStreamEx1 {
     public static void main(String[] args) {
         // 키보드에서 한 글자를 입력받아 정수로 출력해보기.
         try {
-            int data = System.in.read();
-            System.out.println(data);
+            int data = System.in.read(); // 입력 받은 데이터를 변수에 담고
+            System.out.println(data); // 담은 변수를 출력 하는 과정.
         } catch (Exception e) {
             // 오류가 발견 되는 과정을 추적해서 보여줄게요.
             e.printStackTrace();
