@@ -9,7 +9,16 @@ public class FileTest_Ex2 {
         // dir.mkdir();
 
         // 2. 파일의 크기 확인 (용량 확인 )test.txt
-        File file = new File("test.txt");
-        System.out.println("파일 용량 확인 : " + file.length());
+        // File file = new File("test.txt");
+        // System.out.println("파일 용량 확인 : " + file.length());
+
+        // 3.현재 폴더의 모든 파일/폴더 이름 출력
+        File file = new File(".");
+        // 문자열 타입을 가지는 배열에, 파일, 폴더 명을 담기
+        String[] names = file.list();
+        // 출력
+        for (String string : names) {
+            System.out.println("현재 폴더 안에 파일명 폴더명 조회 : " + string);
+        }
     }
 }
