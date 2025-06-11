@@ -3,6 +3,7 @@ package d250610.ch5_2;
 public class MainClass_Ex1 {
     public static void main(String[] args) {
         // 원래 형으로 기본으로 인스턴스 생성.
+        // A a = new A();
         Dog_Ex1 dog_Ex1 = new Dog_Ex1();
         // dog_Ex1.sound();
         // dog_Ex1.eat();
@@ -19,7 +20,9 @@ public class MainClass_Ex1 {
 
         // 각각의 4가지 종류의 동물을 하나의 배열로 담으려면?
         // 무슨 타입으로 만들어야죠? 부모타입.
-        Animal_Ex1[] animals = { ani, ani2, ani3, ani4 };
+        // 배열 정의, 타입을 지정하기를 , 부모 타입으로 받겠다라고 했음.
+        // 그러면, 자식 클래스는 올수 있을까요? 정답 네,
+        Animal_Ex1[] animals = { ani, ani2, ani3, ani4, dog_Ex1, cat_Ex1 };
 
         // 질문 및 퀴즈 , 각 각 배열의 요소를 반복문을 이용해서,
         // 각각의 sound 소리를 나게 할려면 어떻게 할까요?
