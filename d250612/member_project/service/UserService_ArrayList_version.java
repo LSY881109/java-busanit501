@@ -1,12 +1,42 @@
 package d250612.member_project.service;
 
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import d250611.member_project.util.DateUtil;
-import util.model.Member;
+import d250612.member_project.model.Member;
 
 public class UserService_ArrayList_version {
+    // ====================================================================
+    // 추가사항3
+    // 파일에 저장하는 메서드
+    // 특정 파일 : 예) member.txt , 구성은, 1줄마다 멤버의 정보가 콤마를 기준으로 4개씩 구성된 형태.
+    // 이상용,1234,lsy@naver.com,2025-06-12 10시10분
+    // 이상용2,1234,lsy2@naver.com,2025-06-12 10시10분
+    // :
+    // 저장 기능 -> 추가, 수정, 삭제, 더미 데이터 추가시 , 기능의 매 마지막에 이용할 예정.
+    private static void saveToFile() {
+        // 파일 입출력 할 때, 반드시 1)try ~ catch , 또는 2)try ~ resource 형식으로 하기.
+        // FileWriter fw = new FileWriter("member.txt") 작성시, 자동으로 fw.close() 알아서 자원 반납.
+        try (FileWriter fw = new FileWriter("member.txt")) {
+            // ArrayList 메모리상에 있는 데이터를, 실제 파일에 적는 작업, 반복문 작업.
+            for (Member member : members) {
+                // 리스트에서 하나의 요소를 꺼내서 , 꺼낸 요소 : member 인스턴스이고,
+                // member에서 기능, toCSV() 한줄의 멤버정보를 출력하고,
+                // fw.write, 실제 물리파일에 한줄씩 쓰기 작업하기.
+                fw.write(member.toCSV() + "\n");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    // 추가사항4
+    // 파일 불러오기 메서드 (시작시 이용)
+
+    // ====================================================================
     static final int MAX_USERS = 100; // 최대 회원 수
 
     // Member 클래스를 담아 둘 배열 생성. 크기는 동일하게 100명으로 정하기.
