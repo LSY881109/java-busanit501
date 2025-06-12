@@ -23,7 +23,7 @@ public class MemberUI {
                     // UserService_HashMap_version.addUser(scanner); // 회원 추가
                     break;
                 case 2:
-                    UserService_HashMap_version.viewUsers(); // 회원 조회
+                    UserService_ArrayList_version.viewUsers(); // 회원 조회
                     // UserService_HashMap_version.viewUsers(); // 회원 조회
                     break;
                 case 3:
@@ -40,7 +40,7 @@ public class MemberUI {
                     System.out.println("더미 데이터 5개가 추가되었습니다.");
                     break;
                 case 6:
-                    UserService_HashMap_version.searchUser(scanner); // 회원 검색
+                    UserService_ArrayList_version.searchUser(scanner); // 회원 검색
                     // UserService_HashMap_version.searchUser(scanner); // 회원 검색
                     System.out.println("회원 검색 기능이 실행되었습니다.");
                     break;
