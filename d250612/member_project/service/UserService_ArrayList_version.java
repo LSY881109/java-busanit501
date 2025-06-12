@@ -240,14 +240,15 @@ public class UserService_ArrayList_version {
                 // 후
                 members.add(dummyMember);
                 userCount++;
+                // 반영하기.
+                saveToFile();
             } else {
                 System.out.println("더미 회원 추가 실패: 최대 회원 수 초과");
                 break;
             }
         }
         System.out.println("더미 회원 5명이 추가되었습니다.");
-        // 반영하기.
-        saveToFile();
+
     }
     // 회원 더미 데이터 5개 추가하는 메서드
 
