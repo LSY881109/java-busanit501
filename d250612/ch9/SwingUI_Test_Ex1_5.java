@@ -17,7 +17,10 @@ public class SwingUI_Test_Ex1_5 {
         // 2) 익명 클래스 버전으로 설명 하기.
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
+
+                // JFrame.EXIT_ON_CLOSE : 프로그램 자체 종료
+                // DISPOSE_ON_CLOSE : 현재 창만 닫기 위해서
+                frame.dispose(); // 창을 종료하고, 메모리에서 자원 해제
             }
         });
 
