@@ -1,5 +1,8 @@
 package d250612.member_project.service;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -35,6 +38,36 @@ public class UserService_ArrayList_version {
 
     // 추가사항4
     // 파일 불러오기 메서드 (시작시 이용)
+    // 특정 파일 : member.txt 에서, 한줄씩 불러와서, 불러온 정보 하나가 -> member 인스턴스로 변환
+    // -> ArrayList<Member> members 라는 리스트에 담을 예정. 반복하기.
+    public static void loadFromFile() {
+        // 파일이 존재하는지 확인, -> 기본 유효성 체크.
+        // 파일 관련 기능을 가지고 있는 클래스 : File 클래스 이용하기.
+        // 실제 물리 파일을 읽어서, 메모리 올리는 작업.
+        File file = new File("member.txt");
+        if (!file.exists()) { // 파일이 존재 안하면, 메서드를 나간다,
+            return;
+        }
+        // 파일이 있다면,
+        // 파일 안에 내용이 문자 기반이라서, 문자 기반으로 읽고 -> 버퍼에 담아서 작업.
+        // 파일 입출력, try ~ catch, try ~ resource 사용하기.
+        // 1차 -> new FileReader(file) : 물리 파일의 내용을 문자 기반으로 읽기
+        // 2차 -> BufferedReader br = new BufferedReader(요기에 담기) : 버퍼로 읽기
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line; // member.txt 파일 -> 한줄 씩 읽은 내용을 임시로 담을 문자열 변수
+            // 1줄의 멤버의 정보를 -> Member 인스턴스로 생성 -> ArrayList 담는 과정.
+            while ((line = br.readLine()) != null) { // 파일의 내용을 다 읽을 때까지 반복하기.
+                Member member = Member.fromCSV(line);
+                // 유효성 체크, 멤버 있는지 확인
+                if (member != null) {
+                    members.add(member);
+                    userCount++;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     // ====================================================================
     static final int MAX_USERS = 100; // 최대 회원 수
