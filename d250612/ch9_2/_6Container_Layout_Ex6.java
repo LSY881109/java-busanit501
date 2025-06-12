@@ -7,6 +7,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
@@ -23,15 +25,19 @@ public class _6Container_Layout_Ex6 {
 
         // 중앙 패널 생성하고, 샘플 버튼 2개 추가.
         JPanel centerPanel = new JPanel(new GridLayout(2, 2));
-        centerPanel.add(new JButton("샘플버튼3"));
-        centerPanel.add(new JButton("샘플버튼4"));
+        centerPanel.add(new JLabel("이름"));
+        centerPanel.add(new JTextField(20));
+        centerPanel.add(new JLabel("이메일"));
+        centerPanel.add(new JTextField(20));
+        centerPanel.add(new JLabel("패스워드"));
+        centerPanel.add(new JPasswordField(20));
 
+        frame.add(new JButton("가입"), BorderLayout.SOUTH);
         // ======================================================================
         // 프레임에 배치관리자 , BorderLayout 설정.
         frame.setLayout(new BorderLayout());
 
         // 프레임에 -> 패널 붙이기 작업,
-        frame.add(northPanel, BorderLayout.NORTH);
         frame.add(centerPanel, BorderLayout.CENTER);
 
         // ======================================================================
