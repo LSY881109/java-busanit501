@@ -5,7 +5,7 @@ import java.io.File;
 public class FileTest_Ex2 {
     public static void main(String[] args) {
         // 새로운 폴더 만들기, backup 폴더 만들기.
-        // File dir = new File("backup");
+        // File dir = new File("backup2");
         // dir.mkdir();
 
         // 2. 파일의 크기 확인 (용량 확인 )test.txt
@@ -14,7 +14,7 @@ public class FileTest_Ex2 {
 
         // 3.현재 폴더의 모든 파일/폴더 이름 출력
         // File file = new File("D:\\0-java-vscode");
-        // File file = new File(".");
+        // // File file = new File(".");
         // // 문자열 타입을 가지는 배열에, 파일, 폴더 명을 담기
         // String[] names = file.list();
         // // 출력
@@ -23,7 +23,7 @@ public class FileTest_Ex2 {
         // }
 
         // 4. 특정 폴더가 없으면 새로 만들기
-        // File dir = new File("mydir");
+        // File dir = new File("mydir2");
         // if (!dir.exists()) {
         // dir.mkdir();
         // }
