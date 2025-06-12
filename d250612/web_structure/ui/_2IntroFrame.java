@@ -10,6 +10,9 @@ public class _2IntroFrame extends JFrame { // JFrame 부모 클래스를 상속 
     // 실행 클래스가 아니라, 설계 클래스 이므로,
     // 생성자에 필요한 기능을 넣고,
     // 이 클래스의 기본 생성자를 호출(인스턴스 생성시 ) 동작 하게끔 하는 원리.
+
+    // 실행시,
+    // 순서2
     public _2IntroFrame() {
         // JFrame frame = new JFrame("창의 제목 작성. ");
         // JFrame 상속을 받았기 때문에 , 이 클래스는 임의 기능을 탑재 하고 있음.
