@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -46,7 +47,14 @@ public class UserService_ArrayList_version {
         // 실제 물리 파일을 읽어서, 메모리 올리는 작업.
         File file = new File("member.txt");
         if (!file.exists()) { // 파일이 존재 안하면, 메서드를 나간다,
-            return;
+            try {
+                file.createNewFile(); // 물리적으로 파일 생성
+                // 파일이 정상적으로 생성되었는지 확인할 수 있습니다.
+                System.out.println("파일이 생성되었습니다: " + file.getAbsolutePath());
+            } catch (IOException e) {
+                e.printStackTrace();
+                // 파일 생성 실패 시 예외 처리
+            }
         }
         // 파일이 있다면,
         // 파일 안에 내용이 문자 기반이라서, 문자 기반으로 읽고 -> 버퍼에 담아서 작업.
