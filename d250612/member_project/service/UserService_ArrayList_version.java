@@ -2,9 +2,11 @@ package d250612.member_project.service;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -23,12 +25,23 @@ public class UserService_ArrayList_version {
     private static void saveToFile() {
         // 파일 입출력 할 때, 반드시 1)try ~ catch , 또는 2)try ~ resource 형식으로 하기.
         // FileWriter fw = new FileWriter("member.txt") 작성시, 자동으로 fw.close() 알아서 자원 반납.
-        try (FileWriter fw = new FileWriter("member.txt")) {
+
+        // 전
+        // try (FileWriter fw = new FileWriter("member.txt")) {
+        // 변경, 한글 안깨지게, UTF-8 적용하기.
+        try (OutputStreamWriter fw = new OutputStreamWriter(
+                new FileOutputStream("member.txt"), "UTF-8")) {
             // ArrayList 메모리상에 있는 데이터를, 실제 파일에 적는 작업, 반복문 작업.
             for (Member member : members) {
                 // 리스트에서 하나의 요소를 꺼내서 , 꺼낸 요소 : member 인스턴스이고,
                 // member에서 기능, toCSV() 한줄의 멤버정보를 출력하고,
                 // fw.write, 실제 물리파일에 한줄씩 쓰기 작업하기.
+
+                // ===========문제: 파일에 한글에 깨지는 현상 찾기========================
+                // 쓰기 전에 , 한글은 깨지지 않는다.
+                System.out.println("파일에 데이터 쓰기전에 내용 확인1");
+                System.out.println(member.toCSV());
+                // ==========================================================
                 fw.write(member.toCSV() + "\n");
             }
         } catch (Exception e) {
