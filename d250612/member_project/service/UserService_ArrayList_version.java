@@ -18,7 +18,7 @@ public class UserService_ArrayList_version {
     // 이상용,1234,lsy@naver.com,2025-06-12 10시10분
     // 이상용2,1234,lsy2@naver.com,2025-06-12 10시10분
     // :
-    // 저장 기능 -> 추가, 수정, 삭제, 더미 데이터 추가시 , 기능의 매 마지막에 이용할 예정.
+    // 저장 기능 -> 추가, 수정, 삭제, 더미 데이터 추가시 , 기능의 맨 마지막에 이용할 예정.
     private static void saveToFile() {
         // 파일 입출력 할 때, 반드시 1)try ~ catch , 또는 2)try ~ resource 형식으로 하기.
         // FileWriter fw = new FileWriter("member.txt") 작성시, 자동으로 fw.close() 알아서 자원 반납.
@@ -80,6 +80,7 @@ public class UserService_ArrayList_version {
     private static ArrayList<Member> members = new ArrayList<>();
     static int userCount = 0; // 현재 등록된 회원 수
 
+    // 추가기능 반영
     // 회원 추가 메서드
     public static void addUser(Scanner scanner) {
         if (userCount < MAX_USERS) { // 기본 유효성 체크
@@ -106,6 +107,9 @@ public class UserService_ArrayList_version {
             // 회원 수 증가
             userCount++;
             System.out.println("회원이 추가되었습니다: " + name + ", " + email + ", " + registrationDate);
+
+            // 반영하기.
+            saveToFile();
         } else {
             System.out.println("회원 수가 최대치를 초과했습니다.");
         }
@@ -132,6 +136,7 @@ public class UserService_ArrayList_version {
 
     } // 회원 조회 메서드
 
+    // 추가기능 반영
     // 회원 수정 메서드
     // 회원 전체 목록에서, 해당 회원의 인덱스를 번호를 이용해서, 회원 정보를 수정해보기.
     public static void updateUser(Scanner scanner) {
@@ -168,8 +173,11 @@ public class UserService_ArrayList_version {
 
         System.out.println("회원 정보가 수정되었습니다: " + name + ", " + email + ", "
                 + registrationDate);
+        // 반영하기.
+        saveToFile();
     } // 회원 수정 메서드
 
+    // 추가기능 반영
     // 회원 삭제 메서드
     // 수정 처럼, 회원의 인덱스 번호를 입력시, 삭제하는 로직.
     public static void deleteUser(Scanner scanner) {
@@ -203,9 +211,12 @@ public class UserService_ArrayList_version {
         // 회원 수 감소
         userCount--;
         System.out.println("회원이 삭제되었습니다.");
+        // 반영하기.
+        saveToFile();
     }
     // 회원 삭제 메서드
 
+    // 추가기능 반영
     // 회원 더미 데이터 5개 추가하는 메서드
     public static void addDummyUsers() {
         for (int i = 0; i < 5; i++) {
@@ -227,6 +238,8 @@ public class UserService_ArrayList_version {
             }
         }
         System.out.println("더미 회원 5명이 추가되었습니다.");
+        // 반영하기.
+        saveToFile();
     }
     // 회원 더미 데이터 5개 추가하는 메서드
 
