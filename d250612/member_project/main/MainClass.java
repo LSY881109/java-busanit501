@@ -1,4 +1,4 @@
-package d250611.member_project.main;
+package d250612.member_project.main;
 
 import java.util.Scanner;
 
