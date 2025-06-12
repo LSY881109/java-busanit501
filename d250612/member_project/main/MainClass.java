@@ -2,7 +2,7 @@ package d250612.member_project.main;
 
 import java.util.Scanner;
 
-import d250611.member_project.ui.MemberUI;
+import d250612.member_project.ui.MemberUI;
 import d250612.member_project.service.UserService_ArrayList_version;
 
 class MainClass {

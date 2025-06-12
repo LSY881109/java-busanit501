@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import d250611.member_project.model.Member;
-import d250611.member_project.util.DateUtil;
+import d250612.member_project.model.Member;
+import d250612.member_project.util.DateUtil;
 
 public class UserService_HashMap_version {
     static final int MAX_USERS = 100; // 최대 회원 수

@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import d250611.member_project.util.DateUtil;
+import d250612.member_project.util.DateUtil;
 import d250612.member_project.model.Member;
 
 public class UserService_ArrayList_version {
