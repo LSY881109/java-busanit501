@@ -1,11 +1,15 @@
 package d250613.web_structure.ui;
 
 import java.awt.BorderLayout;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -109,6 +113,46 @@ public class _4SignupFrame extends JFrame {
     // 추가4
     // 각 기능들 정의,
     // 1) csv 파일에서 회원 목록 불러오기. loadMembersFromFile()
+    private void loadMembersFromFile() {
+        // 임시 , 멤버의 정보들을 담아두는 리스트,
+        members.clear();// 모두 비우기.
+        // 불러올 파일 경로를 지정.
+        File file = new File(FILE_NAME);
+        // 파일 존재 안하면, 생성.
+        if (!file.exists()) {
+            // 새로운 파일 생성.
+            try {
+                file.createNewFile(); //
+                System.out.println("새로운 파일 생성 : " + FILE_NAME);
+            } catch (Exception e) {
+                // 웹 , alert("경고창") 기능,
+                // 자바, 간단히 구현 하기. 알림창 띄우기, this: 현재 윈도우 창 JFrame
+                JOptionPane.showMessageDialog(this, "파일 생성 오류 : " + e.getMessage());
+                return; // 현재 메서드 나가기
+                // e.printStackTrace();
+            }
+        }
+        // 파일이 있는 경우.
+        // 파일에서 한줄 씩 읽어서 -> members 리스트에 저장.
+        // member.txt , 이상용,lsy@naver.com,1234,2025-06-13 12시 8분, 한줄 씩 가지고 와서,
+        // Member 클래스 인스턴스를 생성하는 재료로 사용이 됨.
+        // 파일을 읽기 작업, 반드시 try ~ catch 작업 해야함.
+        // 한 바이트씩 읽기보다는 버퍼에 담아서 작업 성능 향상,
+        // 예시) 밥 벅고, 식기를 하나씩 싱크대 옮길래? 쟁반에 담아서 한번에 옮길래?
+        try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                Member member = Member.fromCSV(line);
+                if (member != null) {
+                    members.add(member);
+                }
+            }
+        } catch (Exception e) {
+            // 오류 발생시 간단히 알림 창띄우기.
+            JOptionPane.showMessageDialog(this, "파일 읽기 오류 : " + e.getMessage());
+            // TODO: handle exception
+        }
+    }
 
     // 2) 회원 목록을 CSV 파일에 저장, saveMembersToFile()
 
