@@ -193,6 +193,33 @@ public class _4SignupFrame extends JFrame {
     }
 
     // 5) 검색 기능 (이름 또는 이메일 검색어가 포함된 회원만 표시), 검색 결과만 표기.
+    private void searchMembers() {
+        // 검색어 입력창에서, 검색어를 가져오기, 양쪽 공백 제거, 영어 인경우 모두 소문자로 변경하고
+        String query = searchField.getText().trim().toLowerCase();
+        // 유효성 체크. 검색어 비어 있는지 체크.
+        if (query.isEmpty()) {
+            refreshTable(); // 기본 전체 조회가 실행이 됨.
+            return;// 검색 기능 메서드 나가기,
+        }
+        // 임시로 담아둘 멤버 리스트 하나 정의.
+        ArrayList<Member> resultList = new ArrayList<>();
+        // members : 파일에서 읽어서, 담아둔 임시 전체 멤버 리스트,
+        // resultList, 아래 반복문에서, 검색어 일치하는 멤버들만 담을 공간.
+        for (Member member : members) {
+            if (member.getName().toLowerCase().contains(query) ||
+                    member.getEmail().toLowerCase().contains(query)) {
+                resultList.add(member);
+            }
+        }
+        // 검색 된 결과를, 화면에 출력하는 메서드에, 검색된 멤버 리스트를 넘겨주기.
+        showSearchResults(resultList);
+
+        // 검색된 결과가 없다면, 알림창으로 검색 결과가 없습니다.
+        if (resultList.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "검색 결과가 없습니다.");
+        }
+
+    }
 
     // 6) 회원 가입 입력 품, 다이얼 로그 창으로 작업, 자바버전으로
 
