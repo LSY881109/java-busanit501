@@ -38,7 +38,7 @@ public class _4SignupFrame extends JFrame {
 
     public _4SignupFrame() {
         setTitle("회원 가입");
-        setSize(700, 400);
+        setSize(900, 500);
         setLocationRelativeTo(null); // 화면에 중앙 배치.
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -88,10 +88,42 @@ public class _4SignupFrame extends JFrame {
         add(btnPanel, BorderLayout.SOUTH);
         // =================================================================
 
+        // =================================================================
+        // 추가3
+
+        // 파일에서 데이터 불러오고 , 테이블 표시, 메서드 호출
+
+        // 새로고침 기능 호출.
+
+        // 각각의 버튼에 , 기능들을 붙이는 작업 이벤트 핸들러 작업.
+
         // 안내 문구 표시
-        JLabel label = new JLabel("여기는 회원 가입 화면입니다.", JLabel.CENTER);
-        add(label);
+        // JLabel label = new JLabel("여기는 회원 가입 화면입니다.", JLabel.CENTER);
+        // add(label);
+
+        // =================================================================
 
     }
+
+    // =================================================================
+    // 추가4
+    // 각 기능들 정의,
+    // 1) csv 파일에서 회원 목록 불러오기. loadMembersFromFile()
+
+    // 2) 회원 목록을 CSV 파일에 저장, saveMembersToFile()
+
+    // 3) JTable에 회원 데이터 반영 (새로고침)
+
+    // 4) 검색 결괄 테이블에 반영
+
+    // 5) 검색 기능 (이름 또는 이메일 검색어가 포함된 회원만 표시), 검색 결과만 표기.
+
+    // 6) 회원 가입 입력 품, 다이얼 로그 창으로 작업, 자바버전으로
+
+    // 7) 회원 수정 창
+
+    // 8) 회원 삭제 기능.
+
+    // =================================================================
 
 }
