@@ -354,7 +354,35 @@ public class _4SignupFrame extends JFrame {
     }
 
     // 8) 회원 삭제 기능.
+    private void deleteSelectedMemberDialog() {
+        // 테이블 상에서, 선택된 행의 번호를 가져와서, 수정 작업,
+        int row = memberTable.getSelectedRow();
+        // 유효성 체크.
+        if (row == -1) {
+            JOptionPane.showMessageDialog(this, "삭제 할 회원을 선택하세요.");
+            return;
+        }
 
+        // 회원 수정 확인 버튼 누를 경우, 확인 알림창 띄우기.
+        // 확인 버튼 클릭 -> JOptionPane.showConfirmDialog() -> 특정 값을 반환.
+        // 수락 -> 결과 OK 옵션 지정한 상수값 , 외우지, 이름으로 지정.
+        // 수락 -> JOptionPane.OK_OPTION
+        int result = JOptionPane.showConfirmDialog(
+                this, // 이 알림창을 어디에 나타나게 할거냐? this : 현재 윈도우 창
+                "정말 삭제하시겠습니까?", // 사용자에게 보여줄 콘텐츠 ( JPanel )
+                "회원 삭제", // 알림 창에서의 제목
+                JOptionPane.YES_NO_OPTION // 확인, 취소 버튼을 구성하는 옵션
+        );
+
+        // 확인 알림창에서 수락시, 데이터를 파일 저장 시스템.
+        if (result == JOptionPane.YES_OPTION) {
+            // 리스트에 해당 멤버 삭제,
+            members.remove(row);
+            saveMembersToFile();
+            // 변경사항 새로고침, 즉 다 지우고, 전체 회원을 다시 그리기.
+            refreshTable();
+        }
+    }
     // =================================================================
 
 }
