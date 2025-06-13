@@ -2,8 +2,10 @@ package d250613.web_structure.ui;
 
 import java.awt.BorderLayout;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -136,7 +138,7 @@ public class _4SignupFrame extends JFrame {
         // 파일에서 한줄 씩 읽어서 -> members 리스트에 저장.
         // member.txt , 이상용,lsy@naver.com,1234,2025-06-13 12시 8분, 한줄 씩 가지고 와서,
         // Member 클래스 인스턴스를 생성하는 재료로 사용이 됨.
-        // 파일을 읽기 작업, 반드시 try ~ catch 작업 해야함.
+        // 파일을 읽기 작업, 반드시 try ~ resource 작업 해야함.
         // 한 바이트씩 읽기보다는 버퍼에 담아서 작업 성능 향상,
         // 예시) 밥 벅고, 식기를 하나씩 싱크대 옮길래? 쟁반에 담아서 한번에 옮길래?
         try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
@@ -155,6 +157,18 @@ public class _4SignupFrame extends JFrame {
     }
 
     // 2) 회원 목록을 CSV 파일에 저장, saveMembersToFile()
+    private void saveMembersToFile() {
+        // 파일에 저장시, 버퍼를 이용하고, try ~ resource ,
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_NAME))) {
+            for (Member member : members) {
+                bw.write(member.toCSV());
+                bw.newLine();
+            }
+        } catch (Exception e) {
+            // 오류 발생시 간단히 알림 창띄우기.
+            JOptionPane.showMessageDialog(this, "파일 저장 오류 : " + e.getMessage());
+        }
+    }
 
     // 3) JTable에 회원 데이터 반영 (새로고침)
 
