@@ -173,9 +173,8 @@ public class _4SignupFrame extends JFrame {
         // 예시) 밥 벅고, 식기를 하나씩 싱크대 옮길래? 쟁반에 담아서 한번에 옮길래?
         // 변경 전
         // try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
-        // 변경 후 
-        try(BufferedReader br = 
-        new BufferedReader(new InputStreamReader( new FileInputStream(FILE_NAME),"UTF-8")));
+        // 변경 후
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(FILE_NAME), "UTF-8"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 Member member = Member.fromCSV(line);
@@ -183,14 +182,13 @@ public class _4SignupFrame extends JFrame {
                     members.add(member);
                 }
             }
-        }catch(
+        } catch (
 
-    Exception e)
-    {
-        // 오류 발생시 간단히 알림 창띄우기.
-        JOptionPane.showMessageDialog(this, "파일 읽기 오류 : " + e.getMessage());
-        // TODO: handle exception
-    }
+        Exception e) {
+            // 오류 발생시 간단히 알림 창띄우기.
+            JOptionPane.showMessageDialog(this, "파일 읽기 오류 : " + e.getMessage());
+            // TODO: handle exception
+        }
     }
 
     // 2) 회원 목록을 CSV 파일에 저장, saveMembersToFile()
