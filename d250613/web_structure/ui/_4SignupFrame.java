@@ -80,11 +80,15 @@ public class _4SignupFrame extends JFrame {
         JButton updateBtn = new JButton("수정");
         JButton deleteBtn = new JButton("삭제");
         JButton reloadBtn = new JButton("새로고침");
+        // 더미 데이터 버튼
+        JButton dummyBtn = new JButton("더미데이터추가");
+
         // 버튼을 패널에 붙이기.
         btnPanel.add(addBtn);
         btnPanel.add(updateBtn);
         btnPanel.add(deleteBtn);
         btnPanel.add(reloadBtn);
+        btnPanel.add(dummyBtn);
 
         // 검색 패널 생성
         JPanel searchPanel = new JPanel();
@@ -134,6 +138,9 @@ public class _4SignupFrame extends JFrame {
         });
         // 검색어에서, 엔터를 입력해도, 실행이 되게끔.
         searchField.addActionListener(e -> searchMembers());
+
+        // 더미 데이터 기능 추가 이벤트 리스너 연결.
+        dummyBtn.addActionListener(e -> dummyMake());
 
         // 안내 문구 표시
         // JLabel label = new JLabel("여기는 회원 가입 화면입니다.", JLabel.CENTER);
@@ -424,6 +431,26 @@ public class _4SignupFrame extends JFrame {
             refreshTable();
         }
     }
-    // =================================================================
 
+    // 더미 데이터 추가하는 기능.
+    // 화면이 필요 없음.
+    private void dummyMake() {
+
+        // 반복문으로 더미 데이터 10개 정도 넣기.
+        for (int i = 0; i < 10; i++) {
+            Member dummyMember = new Member(
+                    "더미회원" + (i + 1),
+                    "password" + (i + 1),
+                    "dummy" + (i + 1) + "@example.com",
+                    DateUtil.getCurrentDateTime());
+            members.add(dummyMember);
+        }
+
+        saveMembersToFile();
+        // 변경사항 새로고침, 즉 다 지우고, 전체 회원을 다시 그리기.
+        refreshTable();
+        // 10명의 더미 회원 추가 확인 다이얼로그창 띄우기.
+        JOptionPane.showMessageDialog(this, "10명의 더미 회원 추가!!");
+    }
 }
+// =================================================================
