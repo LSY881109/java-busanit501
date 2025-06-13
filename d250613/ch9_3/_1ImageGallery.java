@@ -57,7 +57,7 @@ public class _1ImageGallery extends JFrame {
         // 여기에, 우리가 받은 이미지 제목 리스트에서 요소를 꺼내서, 이 라벨에 주입 할 예정.
         titleLabel = new JLabel("", SwingConstants.CENTER);
         // Font 클래스 이용해서, 폰트, 굵기, 크기
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        titleLabel.setFont(new Font("맑은 고딕", Font.BOLD, 20));
         // 프레임의 북쪽 영역에 제목 붙이기
         add(titleLabel, BorderLayout.NORTH);
 
