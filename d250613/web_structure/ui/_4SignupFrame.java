@@ -5,8 +5,10 @@ import java.awt.GridLayout;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -23,6 +25,9 @@ import javax.swing.table.DefaultTableModel;
 import d250613.member_project.model.Member;
 import d250613.member_project.util.DateUtil;
 
+// 원래 목적, 화면 제공, + 기능 : 결과, 코드가 길어짐. 
+// 기능 테스트, 
+// 기능 분리, 
 public class _4SignupFrame extends JFrame {
     // =============================================================
     // 추가1
@@ -166,7 +171,11 @@ public class _4SignupFrame extends JFrame {
         // 파일을 읽기 작업, 반드시 try ~ resource 작업 해야함.
         // 한 바이트씩 읽기보다는 버퍼에 담아서 작업 성능 향상,
         // 예시) 밥 벅고, 식기를 하나씩 싱크대 옮길래? 쟁반에 담아서 한번에 옮길래?
-        try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
+        // 변경 전
+        // try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
+        // 변경 후 
+        try(BufferedReader br = 
+        new BufferedReader(new InputStreamReader( new FileInputStream(FILE_NAME),"UTF-8")));
             String line;
             while ((line = br.readLine()) != null) {
                 Member member = Member.fromCSV(line);
@@ -174,11 +183,14 @@ public class _4SignupFrame extends JFrame {
                     members.add(member);
                 }
             }
-        } catch (Exception e) {
-            // 오류 발생시 간단히 알림 창띄우기.
-            JOptionPane.showMessageDialog(this, "파일 읽기 오류 : " + e.getMessage());
-            // TODO: handle exception
-        }
+        }catch(
+
+    Exception e)
+    {
+        // 오류 발생시 간단히 알림 창띄우기.
+        JOptionPane.showMessageDialog(this, "파일 읽기 오류 : " + e.getMessage());
+        // TODO: handle exception
+    }
     }
 
     // 2) 회원 목록을 CSV 파일에 저장, saveMembersToFile()
