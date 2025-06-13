@@ -1,6 +1,7 @@
 package d250613.ch9_3;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.util.ArrayList;
 
@@ -68,12 +69,43 @@ public class _1ImageGallery extends JFrame {
         add(navPanel, BorderLayout.SOUTH);
 
         // 썸네일 패널
+        thumbnailPanel = new JPanel();
+        thumbnailPanel.setLayout(new FlowLayout());
+        add(thumbnailPanel, BorderLayout.PAGE_END);
+
+        // 버튼에 대해서, 이벤트 리스너 설정, 람다식
+        // 현재 인덱스 번호가, 우리가 나타낼 , 이미지의 인덱스 동일,
+        preBtn.addActionListener(e -> showImage(currentIndex - 1));
+        nextBtn.addActionListener(e -> showImage(currentIndex + 1));
+
+        // 함수를 호출 기능, 1) 썸네일 이미지 호출 기능 , 2) 초기 이미지 호출 기능
+        loadThumbnails();
+        showImage(0);
 
         // 위치를 중앙에 배치
         setLocationRelativeTo(null);
         setVisible(true);
 
     }
+
+    // 정의
+    // 함수를 호출 기능, 1) 썸네일 이미지 호출 기능 , 2) 초기 이미지 호출 기능
+    // 이미지 호출 기능
+    private void showImage(int index) {
+        // 기본 유효성 체크, 인덱스 범위를 넘어갈 경우, 메서드 나가기
+        if (index < 0 || index >= images.size())
+            return;
+        currentIndex = index;
+        // imageLabel.setIcon : 이미지 설정하는 기능.
+        // images.get(currentIndex), 리스트에 요소에 이미지 파일
+        // 예시, 1번 이미지 : test1.jpg -> 0번 인덱스
+        // 예시, 2번 이미지 : test2.jpg -> 1번 인덱스
+        // 예시, 3번 이미지 : test3.jpg -> 2번 인덱스
+        imageLabel.setIcon(images.get(currentIndex));
+        titleLabel.setText(titles.get(currentIndex));
+    }
+
+    // 썸네일 이미지 호출 기능
 
     public static void main(String[] args) {
         // 임시 이미지, 제목을 담을 리스트 만들기.
