@@ -229,7 +229,7 @@ public class _4SignupFrame extends JFrame {
         // 이름, 이메일, 패스워드, 입력 창(한줄 공간)
         JTextField nameField = new JTextField(10);
         JTextField emailField = new JTextField(15);
-        JPasswordField passwordField = new JPasswordField(10);
+        JTextField passwordField = new JPasswordField(10);
 
         // 그리드 레이아웃을 통해서, 2열짜리 배치 작업,
         // 행을 0으로(행의 갯수 자동 생성), 열 표기,
@@ -267,6 +267,8 @@ public class _4SignupFrame extends JFrame {
             // 값 입출력시, 유효성 체크 하기.
             if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "모든 항목을 입력해주세요.");
+                // 리턴 추가 예정.
+                return;
             }
             // 입력이 다 했고,
             // 인스턴스
@@ -279,6 +281,77 @@ public class _4SignupFrame extends JFrame {
     }
 
     // 7) 회원 수정 창
+    private void showUpdateDialog() {
+        // 테이블 상에서, 선택된 행의 번호를 가져와서, 수정 작업,
+        int row = memberTable.getSelectedRow();
+        // 유효성 체크.
+        if (row == -1) {
+            JOptionPane.showMessageDialog(this, "수정 할 회원을 선택하세요.");
+            return;
+        }
+        // 전체 회원 목록 리스트에, 해당 회원 정보를 가져오기. .
+        Member oldMember = members.get(row);
+
+        // 이름, 이메일, 패스워드, 입력 창(한줄 공간)
+        // 가입시에, 새롭게 내용을 입력을 했다면,
+        // 기존 회원의 정보를 먼저 불러오고, 필요한 부분만 수정 할 예정
+        JTextField nameField = new JTextField(oldMember.getName(), 10);
+        JTextField emailField = new JTextField(oldMember.getEmail(), 15);
+        JTextField passwordField = new JPasswordField(oldMember.getPassword(), 10);
+
+        // 그리드 레이아웃을 통해서, 2열짜리 배치 작업,
+        // 행을 0으로(행의 갯수 자동 생성), 열 표기,
+        JPanel panel = new JPanel(new GridLayout(0, 2));
+        panel.add(new JLabel("이름 :"));
+        panel.add(nameField);
+
+        panel.add(new JLabel("이메일 :"));
+        panel.add(emailField);
+
+        panel.add(new JLabel("패스워드 :"));
+        panel.add(passwordField);
+
+        // 회원 수정 확인 버튼 누를 경우, 확인 알림창 띄우기.
+        // 확인 버튼 클릭 -> JOptionPane.showConfirmDialog() -> 특정 값을 반환.
+        // 수락 -> 결과 OK 옵션 지정한 상수값 , 외우지, 이름으로 지정.
+        // 수락 -> JOptionPane.OK_OPTION
+        int result = JOptionPane.showConfirmDialog(
+                this, // 이 알림창을 어디에 나타나게 할거냐? this : 현재 윈도우 창
+                panel, // 사용자에게 보여줄 콘텐츠 ( JPanel )
+                "회원 정보 수정", // 알림 창에서의 제목
+                JOptionPane.OK_CANCEL_OPTION, // 확인, 취소 버튼을 구성하는 옵션
+                JOptionPane.PLAIN_MESSAGE // 아이콘이 없는 일반 메시지 형식의 알림창을 의미함. 기본 알림창
+        );
+
+        // 확인 알림창에서 수락시, 데이터를 파일 저장 시스템.
+        if (result == JOptionPane.OK_OPTION) {
+            // 화면에서, 입력창에 입력 했던 데이터 들을 다 가지고 와서, 임의의 변수 담고,
+            // Member 클래스 형식으로 인스턴스 만들고, , 리스트 members 추가하고,
+            // 파일에 쓰기 작업함.
+            String name = nameField.getText().trim();
+            String email = emailField.getText().trim();
+            String password = passwordField.getText().trim();
+            String regDate = DateUtil.getCurrentDateTime();
+            // 값 입출력시, 유효성 체크 하기.
+            if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "모든 항목을 입력해주세요.");
+                // 리턴 추가 예정.
+                return;
+            }
+            // 입력이 다 했고,
+            // 인스턴스
+            // 가입시
+            // Member member = new Member(name, password, email, regDate);
+            // 수정 할 경우
+            oldMember.setName(name);
+            oldMember.setEmail(email);
+            oldMember.setPassword(password);
+            oldMember.setRegDate(regDate);
+            saveMembersToFile();
+            // 변경사항 새로고침, 즉 다 지우고, 전체 회원을 다시 그리기.
+            refreshTable();
+        }
+    }
 
     // 8) 회원 삭제 기능.
 
