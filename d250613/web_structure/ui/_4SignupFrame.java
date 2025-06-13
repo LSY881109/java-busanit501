@@ -229,7 +229,7 @@ public class _4SignupFrame extends JFrame {
         // 이름, 이메일, 패스워드, 입력 창(한줄 공간)
         JTextField nameField = new JTextField(10);
         JTextField emailField = new JTextField(15);
-        JTextField passwordField = new JPasswordField(10);
+        JPasswordField passwordField = new JPasswordField(10);
 
         // 그리드 레이아웃을 통해서, 2열짜리 배치 작업,
         // 행을 0으로(행의 갯수 자동 생성), 열 표기,
