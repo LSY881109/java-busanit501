@@ -170,7 +170,7 @@ public class _4SignupFrame extends JFrame {
         }
     }
 
-    // 3) JTable에 회원 데이터 반영 (새로고침)
+    // 3) JTable에 회원 데이터 반영 (새로고침), 전체 모든 회원 조회
     private void refreshTable() {
         tableModel.setRowCount(0); // 기존 데이터 모두 제거, 모든 행 삭제,
         for (Member member : members) {
@@ -181,7 +181,16 @@ public class _4SignupFrame extends JFrame {
         }
     }
 
-    // 4) 검색 결괄 테이블에 반영
+    // 4) 검색 결과 테이블에 반영, 기존 전체데이터를 삭제하고, 검색된 결과 멤버들만 조회,
+    private void showSearchResults(ArrayList<Member> results) {
+        tableModel.setRowCount(0);
+        for (Member member : results) {
+            // tableModel 에, 데이터 쓰기, 기본 데이터 테이블 데이터를 쓰고, -> 출력용 테이블 연결하기.
+            tableModel.addRow(new Object[] {
+                    member.getName(), member.getEmail(), member.getPassword(), member.getRegDate()
+            });
+        }
+    }
 
     // 5) 검색 기능 (이름 또는 이메일 검색어가 포함된 회원만 표시), 검색 결과만 표기.
 
