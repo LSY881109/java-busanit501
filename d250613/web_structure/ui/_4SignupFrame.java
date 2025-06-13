@@ -171,6 +171,15 @@ public class _4SignupFrame extends JFrame {
     }
 
     // 3) JTable에 회원 데이터 반영 (새로고침)
+    private void refreshTable() {
+        tableModel.setRowCount(0); // 기존 데이터 모두 제거, 모든 행 삭제,
+        for (Member member : members) {
+            // tableModel 에, 데이터 쓰기, 기본 데이터 테이블 데이터를 쓰고, -> 출력용 테이블 연결하기.
+            tableModel.addRow(new Object[] {
+                    member.getName(), member.getEmail(), member.getPassword(), member.getRegDate()
+            });
+        }
+    }
 
     // 4) 검색 결괄 테이블에 반영
 
