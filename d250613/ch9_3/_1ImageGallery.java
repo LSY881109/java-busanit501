@@ -1,0 +1,86 @@
+package d250613.ch9_3;
+
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+
+// 이미지를 JLabel에 출력하고, 버튼 클릭시, 이미지 화면이 변경 되는 프로그램. 
+// 각 패널에 UI를 배치하고, -> frame 붙이기 , 
+// 이벤트 리스너도 적용. 
+public class _1ImageGallery extends JFrame {
+    // ImageIcon 클래스 이용, 이미지를 타입으로 가지는 리스트 하나 생성,
+    private ArrayList<ImageIcon> images; // 클래스 내에서 전역으로 사용할 예정. 선언만 하기.
+    // 해당 이미지들에 대한 제목을 저장할 리스트
+    private ArrayList<String> titles; //
+    // 이미지를 출력시, 순서를 나타내는 상태 변수
+    private int currentIndex = 0;
+    // 왜 private를 하나요?
+    // 현재 클래스 파일에서만 접근이 가능하게 하기, 캡슐화 , 데이터 은닉,보안, 시큐어 코딩
+
+    // UI 구성
+    // 제목 라벨
+    private JLabel titleLabel;
+    // 이미지 라벨, 이미지 표시할 라벨
+    private JLabel imageLabel;
+    // 썸네일(손톱) 라벨, 이미지 손톱 만한 크기로 변경하는 것 말함.
+    private JPanel thumbnailPanel;
+
+    // 매개변수 생성자를 정의하고, 실행 클래스가 아니면, 해당 클래스의 기능을 동작 시킬 때,
+    // 2가지 , 1) 정적인 메서드 하거나, 2) 생성자 호출해서, 인스턴스 형식으로 진행.
+    // 실행 시킬 때, 이미지가 있는 리스트와, 이미지에 대한 제목 문자열 리스트 전달 받기.
+    public _1ImageGallery(ArrayList<ImageIcon> images, ArrayList<String> titles) {
+        // 넘겨 받은, 리스트 2개를 본인 클래스로 장착 하기.
+        this.images = images;
+        this.titles = titles;
+
+        // 창제목
+        setTitle("이미지 갤러리 예시");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(600, 500);
+        setLayout(new BorderLayout()); // 기본값, 명시적으로 표기,
+
+        // 이미지 제목 부분, 생성자 밖에, 전역으로 선언만 했었고, 여기서 초기화를 함,
+        // 여기에, 우리가 받은 이미지 제목 리스트에서 요소를 꺼내서, 이 라벨에 주입 할 예정.
+        titleLabel = new JLabel("", SwingConstants.CENTER);
+        // Font 클래스 이용해서, 폰트, 굵기, 크기
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        // 프레임의 북쪽 영역에 제목 붙이기
+        add(titleLabel, BorderLayout.NORTH);
+
+        // 이미지 라벨
+        imageLabel = new JLabel();
+        imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        add(imageLabel, BorderLayout.CENTER);
+
+        // 네비게이션, 버튼
+        JPanel navPanel = new JPanel(); // 기본 배치 관리자 FlowLayout , 나란히 배치가 됨.
+        JButton preBtn = new JButton("이전");
+        JButton nextBtn = new JButton("다음");
+        navPanel.add(preBtn);
+        navPanel.add(nextBtn);
+        add(navPanel, BorderLayout.SOUTH);
+
+        // 썸네일 패널
+
+        // 위치를 중앙에 배치
+        setLocationRelativeTo(null);
+        setVisible(true);
+
+    }
+
+    public static void main(String[] args) {
+        // 임시 이미지, 제목을 담을 리스트 만들기.
+        ArrayList<ImageIcon> imageList = new ArrayList<>();
+        ArrayList<String> titleList = new ArrayList<>();
+        // 실행, 인스턴스 생성으로 호출,
+        new _1ImageGallery(imageList, titleList);
+    }
+
+}
