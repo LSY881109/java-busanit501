@@ -12,7 +12,7 @@ public class _2Container_Layout_Ex2 {
 
         // ======================================================================
         // 프레임에 배치관리자 , BorderLayout 설정.
-        frame.setLayout(new BorderLayout());
+        // frame.setLayout(new BorderLayout());
         // 동,서,남,북, 중앙
         frame.add(new JButton("샘플 버튼 북"), BorderLayout.NORTH);
         frame.add(new JButton("샘플 버튼 남"), BorderLayout.SOUTH);

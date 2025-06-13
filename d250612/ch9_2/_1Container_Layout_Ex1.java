@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 // 배치관리자 (LayoutManager)
 // 정렬을 어떻게 하니? 웹 : flex -> 자동으로 나란히 배치 , grid -> 행 x 열 (테이블구조)
 // 종류 : FlowLayout(flex비슷 ), BoarderLayout(동,서,남,북,중앙), GridLayout(Grid 비슷)
+// JFrame -> 기본 배치관리자, BoarderLayout
+// JPanel ->기본 배치관리자, FlowLayout
 
 // 기본 문법 
 // 1) 패널 만들기, 2) 컴포넌트 추가(버튼 추가) 3) 패널 -> 프레임(윈도우창)에 붙이기 작업, 
@@ -38,7 +40,7 @@ public class _1Container_Layout_Ex1 {
         JFrame frame = new JFrame("FlowLayout  예시");
         JPanel panel = new JPanel();
         // 패널에 배치 관리자 설정, FlowLayout
-        panel.setLayout(new FlowLayout());
+        // panel.setLayout(new FlowLayout());
         // 패널에 샘플 버튼 4개 정도 추가. 나란히 정렬 확인.
         panel.add(new JButton("샘플 버튼1"));
         panel.add(new JButton("샘플 버튼2"));

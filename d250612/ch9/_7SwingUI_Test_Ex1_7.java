@@ -18,11 +18,12 @@ public class _7SwingUI_Test_Ex1_7 {
         JTextArea textArea = new JTextArea(10, 30);// 10줄, 가로 크기 30글자 기본 너비
         JButton saveButton = new JButton("저장");
         // 버튼 이벤트 처리 추가,
-        saveButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                System.out.println(textArea.getText());
-            }
-        });
+        // saveButton.addActionListener(new ActionListener() {
+        // public void actionPerformed(ActionEvent e) {
+        // System.out.println(textArea.getText());
+        // }
+        // });
+        saveButton.addActionListener(e -> System.out.println(textArea.getText()));
         // 화면에 붙이기 작업,
         JPanel panel = new JPanel();
         // 패널에 , 텍스트 영역 추가시, 범위를 넘어가면 스크롤이 생기는 기능 추가.
