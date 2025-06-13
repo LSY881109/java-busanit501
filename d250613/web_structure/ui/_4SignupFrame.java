@@ -6,9 +6,11 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -194,12 +196,18 @@ public class _4SignupFrame extends JFrame {
     // 2) 회원 목록을 CSV 파일에 저장, saveMembersToFile()
     private void saveMembersToFile() {
         // 파일에 저장시, 버퍼를 이용하고, try ~ resource ,
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_NAME))) {
+        // 전
+        // try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_NAME))) {
+        // 후
+        try (BufferedWriter bw = new BufferedWriter(
+                new OutputStreamWriter(new FileOutputStream(FILE_NAME), "UTF-8"))) {
             for (Member member : members) {
                 bw.write(member.toCSV());
                 bw.newLine();
             }
-        } catch (Exception e) {
+        } catch (
+
+        Exception e) {
             // 오류 발생시 간단히 알림 창띄우기.
             JOptionPane.showMessageDialog(this, "파일 저장 오류 : " + e.getMessage());
         }
@@ -210,6 +218,7 @@ public class _4SignupFrame extends JFrame {
         tableModel.setRowCount(0); // 기존 데이터 모두 제거, 모든 행 삭제,
         for (Member member : members) {
             // tableModel 에, 데이터 쓰기, 기본 데이터 테이블 데이터를 쓰고, -> 출력용 테이블 연결하기.
+            // System.out.println("데이터 출력시 깨지는 부분확인 이름: " + member.getName());
             tableModel.addRow(new Object[] {
                     member.getName(), member.getEmail(), member.getPassword(), member.getRegDate()
             });
