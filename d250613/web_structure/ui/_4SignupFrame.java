@@ -101,10 +101,32 @@ public class _4SignupFrame extends JFrame {
         // 추가3
 
         // 파일에서 데이터 불러오고 , 테이블 표시, 메서드 호출
+        loadMembersFromFile();
 
         // 새로고침 기능 호출.
+        refreshTable();
 
         // 각각의 버튼에 , 기능들을 붙이는 작업 이벤트 핸들러 작업.
+        // 회원 가입
+        addBtn.addActionListener(e -> showAddDialog());
+        // 수정.
+        updateBtn.addActionListener(e -> showUpdateDialog());
+        // 삭제
+        deleteBtn.addActionListener(e -> deleteSelectedMemberDialog());
+        // 새로고침
+        reloadBtn.addActionListener(e -> {
+            loadMembersFromFile();
+            refreshTable();
+        });
+        // 검색
+        searchBtn.addActionListener(e -> searchMembers());
+        // 검색 초기화
+        resetBtn.addActionListener(e -> {
+            searchField.setText("");
+            refreshTable();
+        });
+        // 검색어에서, 엔터를 입력해도, 실행이 되게끔.
+        searchField.addActionListener(e -> searchMembers());
 
         // 안내 문구 표시
         // JLabel label = new JLabel("여기는 회원 가입 화면입니다.", JLabel.CENTER);
