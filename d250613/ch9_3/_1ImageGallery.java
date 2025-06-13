@@ -72,12 +72,24 @@ public class _1ImageGallery extends JFrame {
         JButton nextBtn = new JButton("다음");
         navPanel.add(preBtn);
         navPanel.add(nextBtn);
-        add(navPanel, BorderLayout.SOUTH);
+        // 전
+        // add(navPanel, BorderLayout.SOUTH);
 
         // 썸네일 패널
         thumbnailPanel = new JPanel();
         thumbnailPanel.setLayout(new FlowLayout());
-        add(thumbnailPanel, BorderLayout.PAGE_END);
+        // 전
+        // add(thumbnailPanel, BorderLayout.PAGE_END);
+
+        // ==========================================================
+        // 2개의 패널 , 합치는 패널.
+        // 수정 , 후
+        JPanel southPanel = new JPanel();
+        southPanel.setLayout(new BorderLayout());
+        southPanel.add(navPanel, BorderLayout.NORTH);
+        southPanel.add(thumbnailPanel, BorderLayout.SOUTH);
+        add(southPanel, BorderLayout.SOUTH);
+        // ==========================================================
 
         // 버튼에 대해서, 이벤트 리스너 설정, 람다식
         // 현재 인덱스 번호가, 우리가 나타낼 , 이미지의 인덱스 동일,
