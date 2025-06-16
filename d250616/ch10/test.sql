@@ -29,3 +29,8 @@ commit;
 -- 테이블 조회 
 select *
   from member501;
+
+-- 한명 회원 조회 sql 
+select *
+  from member501
+ where id = 2;
