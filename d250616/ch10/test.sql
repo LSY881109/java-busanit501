@@ -34,3 +34,8 @@ select *
 select *
   from member501
  where id = 2;
+
+ -- 검색 조회. 
+select *
+  from member501
+ where name like '%이상용%';
