@@ -1,6 +1,7 @@
 -- 샘플 시퀀스 만들기. 
+-- 세미 콜론으로 문장 구분을 안했을 경우, 해당 문장 직접 드래그해서, ctrl + enter 로 실행 해주세요.
 create sequence member501_seq start with 1 increment by 1;
-
+drop sequence member501_seq
 drop table member501;
 --샘플 확인용 테이블 만들기
 create table member501 (
@@ -8,7 +9,7 @@ create table member501 (
    name     varchar2(100),
    password varchar2(100),
    email    varchar2(100),
-   reg_date varchar2(30)
+   reg_date varchar2(50)
 )
 -- 샘플 데이터 하나 넣기. 
 insert into member501 (

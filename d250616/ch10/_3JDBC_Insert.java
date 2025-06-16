@@ -64,7 +64,9 @@ public class _3JDBC_Insert {
             // pstmt.setString(2, "이상용");
             // pstmt.setString(3, "1234");
             // pstmt.setString(4, "lsy@naver.com");
-            // pstmt.setString(5, DateUtil.getCurrentDateTime());
+            // String date = DateUtil.getCurrentDateTime();
+            // System.out.println(date);
+            // pstmt.setString(5, date);
 
             // 시퀀스 이용해서, 자동 순번으로 넣을 경우.
             pstmt.setString(1, "이상용");
@@ -84,9 +86,11 @@ public class _3JDBC_Insert {
             // String name = rs.getString("name");
 
             // 쓰기 버전,
-            // int result = pstmt.executeUpdate(query)
+            // int result = pstmt.executeUpdate()
             System.out.println("6. 전송 전 완료");
-            int result = pstmt.executeUpdate(query);
+            // 오류 업데이트 시에, 메서도 호출 방법이 다름.
+            // int result = pstmt.executeUpdate(query);
+            int result = pstmt.executeUpdate();
             System.out.println("6-2. 전송 후 완료");
             System.out.println(result + " 개의 데이터가 저장됨");
 
