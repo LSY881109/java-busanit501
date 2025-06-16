@@ -75,31 +75,59 @@ public class _2JDBC_Select {
             // 주의사항, 세미콜론을 입력하지 않는다.
             // 예) String query = "select sysdate from dual"
             String query = "select * from member501";
+
+            // 5. PreparedStatement 생성
+            // 요청할 SQL 문을 데이터베이스 전송할 때 사용하는 기능(API)
+            pstmt = conn.prepareStatement(query);
+
+            // 6. SQL 문 전송 및 결과값 얻기, 1) 조회 버전: executeQuery, 2) 쓰기, 수정, 삭제 :executeUpdate()
+            // 조회 버전
+            // 예) ResultSet rs = pstmt.executeQuery(query)
+            // ResultSet : 가상의 테이블, 데이터 베이스에서 조회된 데이터를 테이블 형식으로 메모리상에 저장.
+            // 0 행 부터 시작 함.
+            // 예) while(rs.next()){ // 0행 시작 -> 1행의 데이터가 존재 하면, 가져올 작업한다.
+            // int id = rs.getInt("id");
+            // String name = rs.getString("name");
+            rs = pstmt.executeQuery(query); // 실제 디비에 연결해서 실행 결과를 받아옴.
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String email = rs.getString("email");
+                String password2 = rs.getString("password");
+                String reg_date = rs.getString("reg_date");
+                // 콘솔에서, 데이터 조회 확인.
+                System.out.println("데이터 조회 : ");
+                System.out.println("id : " + id);
+                System.out.println("name : " + name);
+                System.out.println("email : " + email);
+                System.out.println("password2 : " + password2);
+                System.out.println("reg_date : " + reg_date);
+
+            }
+
+            // 쓰기 버전,
+            // int result = executeUpdate(query)
         } catch (Exception e) {
             // TODO: handle exception
+        } finally {
+            // 7. 자원 반납.
+            // 객체를 생성한 역순으로 반납.
+            // 1) Connection 2) PreparedStatement 3) ResultSet 객체를 순서로 만들었음.
+            // 해당 객체의 자원 반납 객체.close()
+            // try ~ resource 구문으로 , 자동으로 autocloseable 이용하거나,
+            try {
+                if (rs != null)
+                    rs.close();
+                if (pstmt != null)
+                    pstmt.close();
+                if (conn != null)
+                    conn.close();
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
+
         }
 
-        // 5. PreparedStatement 생성
-        // 요청할 SQL 문을 데이터베이스 전송할 때 사용하는 기능(API)
-        // 예) PreparedStatement pstmt = conn.prepareStatement(query)
-
-        // 6. SQL 문 전송 및 결과값 얻기, 1) 조회 버전: executeQuery, 2) 쓰기, 수정, 삭제 :executeUpdate()
-        // 조회 버전
-        // 예) ResultSet rs = pstmt.executeQuery(query)
-        // ResultSet : 가상의 테이블, 데이터 베이스에서 조회된 데이터를 테이블 형식으로 메모리상에 저장.
-        // 0 행 부터 시작 함.
-        // 예) while(rs.next()){ // 0행 시작 -> 1행의 데이터가 존재 하면, 가져올 작업한다.
-        // int id = rs.getInt("id");
-        // String name = rs.getString("name");
-
-        // 쓰기 버전,
-        // int result = executeUpdate(query)
-
-        // 7. 자원 반납.
-        // 객체를 생성한 역순으로 반납.
-        // 1) Connection 2) PreparedStatement 3) ResultSet 객체를 순서로 만들었음.
-        // 해당 객체의 자원 반납 객체.close()
-        // try ~ resource 구문으로 , 자동으로 autocloseable 이용하거나,
     }
 
 }
