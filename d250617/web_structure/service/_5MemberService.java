@@ -1,13 +1,14 @@
 package d250617.web_structure.service;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+// import java.io.BufferedReader;
+// import java.io.BufferedWriter;
+// import java.io.File;
+// import java.io.FileInputStream;
+// import java.io.FileOutputStream;
+// import java.io.InputStreamReader;
+// import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -22,6 +23,7 @@ import javax.swing.*;
 public class _5MemberService {
     // 파일 불러오는 경로를 전역으로 설정.
 
+    // 0617 순서1
     // 변경 전
     // private static final String FILE_NAME = "member.txt"; // 회원 정보 저장 파일명, csv 형식
 
@@ -29,11 +31,12 @@ public class _5MemberService {
     // DB에서, 데이터 가져오기 준비,_N1OracleMemberDAOImpl(전체조회, 추가, 수정, 삭제, 검색 등 기능이 탑재)
     _9DAO_Inaterface dao = new _N1OracleMemberDAOImpl();
 
+    // 0617 순서2
     // 변경 전
     // 파일에서 불러온 멤버의 모든 정보를 담아둘 임시 공간 리스트
     // 변경 후
     // DB에서 불러온 멤버의 모든 정보를 담아둘 임시 공간 리스트
-    private ArrayList<_10Member> members = new ArrayList<>();
+    private List<_10Member> members = new ArrayList<>();
 
     // 없는 부분 받아서 임시로 사용하기.
     private DefaultTableModel tableModel;
@@ -54,7 +57,7 @@ public class _5MemberService {
         this.searchField = searchField;
     }
 
-    public ArrayList<_10Member> getMembers() {
+    public List<_10Member> getMembers() {
         return members;
     }
 
@@ -63,57 +66,20 @@ public class _5MemberService {
         saveMembersToFile();
     }
 
+    // 0617 순서3, 해당 기능 수정.
+    // 변경 전
     // 1) csv 파일에서 회원 목록 불러오기. loadMembersFromFile()
-    public void loadMembersFromFile() {
+
+    // 변경 후,
+    // 디비에서 불러오기.
+    public void loadMembersFromDB() {
         // 임시 , 멤버의 정보들을 담아두는 리스트,
         members.clear();// 모두 비우기.
-        // 불러올 파일 경로를 지정.
-        File file = new File(FILE_NAME);
-        // 파일 존재 안하면, 생성.
-        if (!file.exists()) {
-            // 새로운 파일 생성.
-            try {
-                file.createNewFile(); //
-                System.out.println("새로운 파일 생성 : " + FILE_NAME);
-            } catch (Exception e) {
-                // 웹 , alert("경고창") 기능,
-                // 자바, 간단히 구현 하기. 알림창 띄우기, this: 현재 윈도우 창 JFrame
-                // 기존 클래스에서는, JFrame 상속을 받아서, 기능을 사용할 수있지만, 지금은 분리가 되어서,
-                // 따로 구현이 하거나, 잠시 주석.
-                // JOptionPane.showMessageDialog(this, "파일 생성 오류 : " + e.getMessage());
-                // System.out.println("다른 방법으로 알림등 알려줄 예정");
-                System.out.println(e.getMessage());
-                return; // 현재 메서드 나가기
-                // e.printStackTrace();
-            }
-        }
-        // 파일이 있는 경우.
-        // 파일에서 한줄 씩 읽어서 -> members 리스트에 저장.
-        // member.txt , 이상용,lsy@naver.com,1234,2025-06-13 12시 8분, 한줄 씩 가지고 와서,
-        // Member 클래스 인스턴스를 생성하는 재료로 사용이 됨.
-        // 파일을 읽기 작업, 반드시 try ~ resource 작업 해야함.
-        // 한 바이트씩 읽기보다는 버퍼에 담아서 작업 성능 향상,
-        // 예시) 밥 벅고, 식기를 하나씩 싱크대 옮길래? 쟁반에 담아서 한번에 옮길래?
-        // 변경 전
-        // try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
-        // 변경 후
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(FILE_NAME), "UTF-8"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                // _10Member member = _10Member.fromCSV(line);
-                // if (member != null) {
-                members.add(null);
-                // }
-            }
-        } catch (
-
-        Exception e) {
-            // 오류 발생시 간단히 알림 창띄우기.
-            // JOptionPane.showMessageDialog(this, "파일 읽기 오류 : " + e.getMessage());
-            // JOptionPane.showMessageDialog(this, "파일 생성 오류 : " + e.getMessage());
-            // System.out.println("다른 방법으로 알림등 알려줄 예정");
+        try {
+            members = dao.findAll();
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-            // TODO: handle exception
+
         }
     }
 
@@ -123,21 +89,21 @@ public class _5MemberService {
         // 전
         // try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_NAME))) {
         // 후
-        try (BufferedWriter bw = new BufferedWriter(
-                new OutputStreamWriter(new FileOutputStream(FILE_NAME), "UTF-8"))) {
-            for (_10Member member : members) {
-                // bw.write(member.toCSV());
-                bw.newLine();
-            }
-        } catch (
+        // try (BufferedWriter bw = new BufferedWriter(
+        // new OutputStreamWriter(new FileOutputStream(FILE_NAME), "UTF-8"))) {
+        // for (_10Member member : members) {
+        // // bw.write(member.toCSV());
+        // bw.newLine();
+        // }
+        // } catch (
 
-        Exception e) {
-            // 오류 발생시 간단히 알림 창띄우기.
-            // JOptionPane.showMessageDialog(this, "파일 저장 오류 : " + e.getMessage());
-            // JOptionPane.showMessageDialog(this, "파일 생성 오류 : " + e.getMessage());
-            // System.out.println("다른 방법으로 알림등 알려줄 예정");
-            System.out.println(e.getMessage());
-        }
+        // Exception e) {
+        // // 오류 발생시 간단히 알림 창띄우기.
+        // // JOptionPane.showMessageDialog(this, "파일 저장 오류 : " + e.getMessage());
+        // // JOptionPane.showMessageDialog(this, "파일 생성 오류 : " + e.getMessage());
+        // // System.out.println("다른 방법으로 알림등 알려줄 예정");
+        // System.out.println(e.getMessage());
+        // }
     }
 
     // 더미 데이터 추가하는 기능.
