@@ -218,9 +218,17 @@ public class _4SignupFrame extends JFrame {
             // 인스턴스
             // _10Member member = new _10Member(name, password, email, regDate);
             // members.add(member);
-            service.addMember(null);
-            JOptionPane.showMessageDialog(this, "회원 가입 되었습니다.");
-            service.saveMembersToFile();
+            // 0617, 회원가입 적용 변경 전
+            // service.addMember(null);
+            // JOptionPane.showMessageDialog(this, "회원 가입 되었습니다.");
+            // service.saveMembersToFile();
+
+            // 0617, 회원가입 적용 변경 후
+            // 1) 회원가입 화면에서 넘겨 받은 데이터 -> member 객체 생성
+            // 매개변수에서 id 부분은 큰 의미가 없다 -> 왜? 디비에 넣을 때, 필요 없어서, -> 자동생성이라서
+            _10Member member = new _10Member(1, name, email, password, regDate);
+            // 2) insert 메서드에, 입력받은 회원 정보 member 전달,
+
             // 변경사항 새로고침, 즉 다 지우고, 전체 회원을 다시 그리기.
             service.refreshTable();
         }

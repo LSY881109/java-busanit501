@@ -61,9 +61,16 @@ public class _5MemberService {
         return members;
     }
 
+    // 0617, 회원가입 변경 전, 파일에 쓰는 버전.
     public void addMember(_10Member member) {
         members.add(member);
         saveMembersToFile();
+    }
+
+    // 0617, 회원가입 변경 후
+    public void addMemberDB(_10Member member) {
+        // 디비에 쓰는 기능을 사용하기.
+
     }
 
     // 0617 순서3, 해당 기능 수정.
