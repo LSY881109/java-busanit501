@@ -74,6 +74,12 @@ public class _5MemberService {
         // System.out.println("회원 가입 완료");
     }
 
+    // 0617, 회원 수정시, 한명의 회원 정보를 가져오는 기능.
+    public _10Member getMemberOne(int member_id) {
+        _10Member member = dao.findById(member_id);
+        return member;
+    }
+
     // 0617 순서3, 해당 기능 수정.
     // 변경 전
     // 1) csv 파일에서 회원 목록 불러오기. loadMembersFromFile()

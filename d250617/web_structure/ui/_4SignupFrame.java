@@ -257,7 +257,7 @@ public class _4SignupFrame extends JFrame {
             member_id = ((Integer) value).intValue();
             System.out.println("선택된 ID 정수화 : " + member_id);
         }
-
+        member_id = ((Integer) value).intValue();
         // 유효성 체크.
         if (row == -1) {
             JOptionPane.showMessageDialog(this, "수정 할 회원을 선택하세요.");
@@ -273,6 +273,7 @@ public class _4SignupFrame extends JFrame {
         // 0617 , 회원 수정 변경 후, 실제 데이터에서, 해당 ID 번호로 회원의 정보를 가져오기.
         // 여기서, 한명의 회원 정보를 가져오는 DAO 메서드가 필요함.
         // 추가 작업 필요함. -> 한명 회원 정보 가져오기 작업.
+        _10Member oldMember = service.getMemberOne(member_id);
 
         // 이름, 이메일, 패스워드, 입력 창(한줄 공간)
         // 가입시에, 새롭게 내용을 입력을 했다면,
