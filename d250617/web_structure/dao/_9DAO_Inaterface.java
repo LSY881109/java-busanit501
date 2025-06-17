@@ -2,7 +2,7 @@ package d250617.web_structure.dao;
 
 import java.util.List;
 
-import d250616.dto.*;
+import d250617.web_structure.dto._10Member;
 
 // DAO(Data Access Object) , : DB 에 접근하는 기능 모음집
 // CRUD, 검색, 한명 조회, 필터 등. 
