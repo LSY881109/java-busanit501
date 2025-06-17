@@ -80,6 +80,11 @@ public class _5MemberService {
         return member;
     }
 
+    // 0617, 회원 수정, 디비에 반영하기.
+    public void updateMember(_10Member member) {
+        dao.update(member);
+    }
+
     // 0617 순서3, 해당 기능 수정.
     // 변경 전
     // 1) csv 파일에서 회원 목록 불러오기. loadMembersFromFile()

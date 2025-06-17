@@ -270,7 +270,8 @@ public class _4SignupFrame extends JFrame {
         // 단순 리스트에 등록된 순서로 데이터를 가져오고 있음.
         // _10Member oldMember = service.getMembers().get(row);
 
-        // 0617 , 회원 수정 변경 후, 실제 데이터에서, 해당 ID 번호로 회원의 정보를 가져오기.
+        // 0617 , 회원 수정 변경 후,
+        // 실제 데이터에서, 해당 ID 번호로 회원의 정보를 가져오기.
         // 여기서, 한명의 회원 정보를 가져오는 DAO 메서드가 필요함.
         // 추가 작업 필요함. -> 한명 회원 정보 가져오기 작업.
         _10Member oldMember = service.getMemberOne(member_id);
@@ -338,7 +339,20 @@ public class _4SignupFrame extends JFrame {
 
             // 0617, 회원 수정, 변경 후,
             // 1) 화면에서 변경할 데이터를 멤버에 담기.
+            oldMember.setName(name);
+            oldMember.setEmail(email);
+            oldMember.setPassword(password);
+            // oldMember.setRegDate(regDate);
             // 2) 수정하는 메서드에, 변경할 내용의 멤버 객체 전달 + 수정할 인덱스도 같이 넘기기.!@!
+            service.updateMember(oldMember);
+            // 수정한 데이터 반영하기.
+
+            // 0617 , 회원 수정 후, 변경 사항 부분에 반영
+            // 회원 변경 후, 디비에서 변경된 데이터를 다시 불러오기
+            service.loadMembersFromDB();
+
+            // 변경사항 새로고침, 즉 다 지우고, 전체 회원을 다시 그리기.
+            service.refreshTable();
         }
     }
 
