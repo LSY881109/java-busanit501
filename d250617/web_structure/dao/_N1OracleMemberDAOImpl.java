@@ -63,8 +63,8 @@ public class _N1OracleMemberDAOImpl implements _9DAO_Inaterface {
     }
 
     @Override
-    public boolean insert(_10Member member) {
-        List<_10Member> memberList = new ArrayList<>();
+    public boolean insert(_10Member member) {// member : 화면으로 부터 입력 받은 회원 정보
+
         try {
             conn = _4DBConnectionManager.getConnection();
 
@@ -72,7 +72,6 @@ public class _N1OracleMemberDAOImpl implements _9DAO_Inaterface {
             String query = "INSERT INTO MEMBER501 (ID,NAME,PASSWORD,EMAIL,REG_DATE)" +
                     "VALUES(MEMBER501_SEQ.NEXTVAL,?,?,?,?)";
 
-            System.out.println("4. SQL 문 작성 완료");
             // 5. PreparedStatement 생성
             // 요청할 SQL 문을 데이터베이스 전송할 때 사용하는 기능(API)
             // 예) PreparedStatement pstmt = conn.prepareStatement(query)
@@ -80,50 +79,31 @@ public class _N1OracleMemberDAOImpl implements _9DAO_Inaterface {
             // 추가할 데이터를 ,해당 와일드카드(?) 에 해당하는 데이터 임시로 하드코딩으로 넣고 있고,
             // 화면에서 데이터를 사용자로부터 받아서 추가 할 예정.
 
-            // 직접 ID 수동으로 넣을 경우,
-            // pstmt.setInt(1, 100);
-            // pstmt.setString(2, "이상용");
-            // pstmt.setString(3, "1234");
-            // pstmt.setString(4, "lsy@naver.com");
-            // String date = DateUtil.getCurrentDateTime();
-            // System.out.println(date);
-            // pstmt.setString(5, date);
-
             // 시퀀스 이용해서, 자동 순번으로 넣을 경우.
-            pstmt.setString(1, "이상용");
-            pstmt.setString(2, "1234");
-            pstmt.setString(3, "lsy@naver.com");
+            // 0617 , 회원 가입 변경 전
+            // pstmt.setString(1, "이상용");
+            // pstmt.setString(2, "1234");
+            // pstmt.setString(3, "lsy@naver.com");
+            // pstmt.setString(4, DateUtil.getCurrentDateTime());
+
+            // 0617 , 회원 가입 변경 후 ->
+            // 화면에서 데이터를 사용자로부터 받아서 -> member 담아져 있음. -> 여기서 꺼내서 사용하기.
+            pstmt.setString(1, member.getName());
+            pstmt.setString(2, member.getPassword());
+            pstmt.setString(3, member.getEmail());
             pstmt.setString(4, DateUtil.getCurrentDateTime());
             System.out.println("5. PreparedStatement 생성 완료");
 
             // 6. SQL 문 전송 및 결과값 얻기, 1) 조회 버전: executeQuery,
-            // 2) 쓰기, 수정, 삭제 :executeUpdate()
-            // 조회 버전
-            // 예) ResultSet rs = pstmt.executeQuery(query)
-            // ResultSet : 가상의 테이블, 데이터 베이스에서 조회된 데이터를 테이블 형식으로 메모리상에 저장.
-            // 0 행 부터 시작 함.
-            // 예) while(rs.next()){ // 0행 시작 -> 1행의 데이터가 존재 하면, 가져올 작업한다.
-            // int id = rs.getInt("id");
-            // String name = rs.getString("name");
-
             // 쓰기 버전,
-            // int result = pstmt.executeUpdate()
-            System.out.println("6. 전송 전 완료");
-            // 오류 업데이트 시에, 메서도 호출 방법이 다름.
-            // int result = pstmt.executeUpdate(query);
-            int result = pstmt.executeUpdate();
-            System.out.println("6-2. 전송 후 완료");
+            int result = pstmt.executeUpdate(); // 실제로 디비에 쓰기 작업 진행.
             System.out.println(result + " 개의 데이터가 저장됨");
-            }
-        }catch(
-
-    Exception e)
-    {
-        e.printStackTrace();
-    }finally
-    {
-        _4DBConnectionManager.close(null, pstmt, conn);
-    }return memberList;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            _4DBConnectionManager.close(null, pstmt, conn);
+        }
+        return true;
     }
 
     @Override
