@@ -230,6 +230,11 @@ public class _4SignupFrame extends JFrame {
             // 2) insert 메서드에, 입력받은 회원 정보 member 전달,
             service.addMemberDB(member);
             JOptionPane.showMessageDialog(this, "회원 가입 되었습니다.");
+
+            // 0617 , 회원 가입 후, 변경 사항 부분에 추가
+            // 회원 가입 후, 디비에서 변경된 데이터를 다시 불러오기
+            service.loadMembersFromDB();
+
             // 변경사항 새로고침, 즉 다 지우고, 전체 회원을 다시 그리기.
             service.refreshTable();
         }
