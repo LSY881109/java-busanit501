@@ -138,8 +138,14 @@ public class _5MemberService {
             // tableModel 에, 데이터 쓰기, 기본 데이터 테이블 데이터를 쓰고, -> 출력용 테이블 연결하기.
             // System.out.println("데이터 출력시 깨지는 부분확인 이름: " + member.getName());
             tableModel.addRow(new Object[] {
+                    // 0617, 변경 전
                     // member.getName(), member.getEmail(), member.getPassword(),
                     // member.getRegDate()
+
+                    // 0617, 변경 후, 순서 표기, 테이블 출력용 맞게 , 데이터 출력하기
+                    // String[] cols = { "아이디", "이름", "이메일", "패스워드", "가입일" };
+                    member.getId(), member.getName(), member.getEmail(), member.getPassword(),
+                    member.getReg_date()
             });
         }
     }

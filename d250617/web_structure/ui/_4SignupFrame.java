@@ -13,9 +13,9 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-import d250613.member_project.model.Member;
-import d250613.member_project.util.DateUtil;
-import d250613.web_structure.service._5MemberService;
+import d250617.web_structure.dto._10Member;
+import d250617.web_structure.service._5MemberService;
+import d250617.web_structure.util.DateUtil;
 
 // 원래 목적, 화면 제공, + 기능 : 결과, 코드가 길어짐. 
 // 기능 테스트, 
@@ -52,7 +52,12 @@ public class _4SignupFrame extends JFrame {
         // 추가2.
         // 테이블 작업 부터 진행 하기.
         // 1) 테이블 헤더 만들기, 이름, 이메일, 패스워드, 가입일 ,
-        String[] cols = { "이름", "이메일", "패스워드", "가입일" };
+
+        // 0617, 변경 전,
+        // String[] cols = { "이름", "이메일", "패스워드", "가입일" };
+
+        // 0617, 변경 후,
+        String[] cols = { "아이디", "이름", "이메일", "패스워드", "가입일" };
         tableModel = new DefaultTableModel(cols, 0) { // 익명클래스,
             public boolean isCellEditable(int row, int column) {
                 return false; // 각테이블의 셀 클릭시 값이 변경이 되는 모드 기본, 안되게 변경함.
@@ -113,8 +118,12 @@ public class _4SignupFrame extends JFrame {
         // =================================================================
         // 추가3
 
+        // 0617 , 변경 전
         // 파일에서 데이터 불러오고 , 테이블 표시, 메서드 호출
-        service.loadMembersFromFile();
+        // service.loadMembersFromFile();
+
+        // 0617 , 변경 후
+        service.loadMembersFromDB();
 
         // 새로고침 기능 호출.
         service.refreshTable();
@@ -128,7 +137,7 @@ public class _4SignupFrame extends JFrame {
         deleteBtn.addActionListener(e -> deleteSelectedMemberDialog());
         // 새로고침
         reloadBtn.addActionListener(e -> {
-            service.loadMembersFromFile();
+            // service.loadMembersFromFile();
             service.refreshTable();
         });
         // 검색
@@ -207,9 +216,9 @@ public class _4SignupFrame extends JFrame {
             }
             // 입력이 다 했고,
             // 인스턴스
-            Member member = new Member(name, password, email, regDate);
+            // _10Member member = new _10Member(name, password, email, regDate);
             // members.add(member);
-            service.addMember(member);
+            service.addMember(null);
             JOptionPane.showMessageDialog(this, "회원 가입 되었습니다.");
             service.saveMembersToFile();
             // 변경사항 새로고침, 즉 다 지우고, 전체 회원을 다시 그리기.
@@ -228,7 +237,7 @@ public class _4SignupFrame extends JFrame {
         }
         // 전체 회원 목록 리스트에, 해당 회원 정보를 가져오기. .
         // Member oldMember = members.get(row);
-        Member oldMember = service.getMembers().get(row);
+        _10Member oldMember = service.getMembers().get(row);
 
         // 이름, 이메일, 패스워드, 입력 창(한줄 공간)
         // 가입시에, 새롭게 내용을 입력을 했다면,
@@ -284,7 +293,7 @@ public class _4SignupFrame extends JFrame {
             oldMember.setName(name);
             oldMember.setEmail(email);
             oldMember.setPassword(password);
-            oldMember.setRegDate(regDate);
+            // oldMember.setRegDate(regDate);
             service.saveMembersToFile();
             // 변경사항 새로고침, 즉 다 지우고, 전체 회원을 다시 그리기.
             service.refreshTable();
