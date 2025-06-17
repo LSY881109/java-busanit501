@@ -10,17 +10,30 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 import javax.swing.table.DefaultTableModel;
-import javax.swing.*;
 
-import d250613.member_project.model.Member;
-import d250613.member_project.util.DateUtil;
-import d250613.web_structure.ui._4SignupFrame;
+import d250617.web_structure.dao._9DAO_Inaterface;
+import d250617.web_structure.dao._N1OracleMemberDAOImpl;
+import d250617.web_structure.dto._10Member;
+import d250617.web_structure.ui._4SignupFrame;
+import d250617.web_structure.util.DateUtil;
+
+import javax.swing.*;
 
 public class _5MemberService {
     // 파일 불러오는 경로를 전역으로 설정.
-    private static final String FILE_NAME = "member.txt"; // 회원 정보 저장 파일명, csv 형식
+
+    // 변경 전
+    // private static final String FILE_NAME = "member.txt"; // 회원 정보 저장 파일명, csv 형식
+
+    // 변경 후
+    // DB에서, 데이터 가져오기 준비,_N1OracleMemberDAOImpl(전체조회, 추가, 수정, 삭제, 검색 등 기능이 탑재)
+    _9DAO_Inaterface dao = new _N1OracleMemberDAOImpl();
+
+    // 변경 전
     // 파일에서 불러온 멤버의 모든 정보를 담아둘 임시 공간 리스트
-    private ArrayList<Member> members = new ArrayList<>();
+    // 변경 후
+    // DB에서 불러온 멤버의 모든 정보를 담아둘 임시 공간 리스트
+    private ArrayList<_10Member> members = new ArrayList<>();
 
     // 없는 부분 받아서 임시로 사용하기.
     private DefaultTableModel tableModel;
@@ -41,11 +54,11 @@ public class _5MemberService {
         this.searchField = searchField;
     }
 
-    public ArrayList<Member> getMembers() {
+    public ArrayList<_10Member> getMembers() {
         return members;
     }
 
-    public void addMember(Member member) {
+    public void addMember(_10Member member) {
         members.add(member);
         saveMembersToFile();
     }
@@ -87,10 +100,10 @@ public class _5MemberService {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(FILE_NAME), "UTF-8"))) {
             String line;
             while ((line = br.readLine()) != null) {
-                Member member = Member.fromCSV(line);
-                if (member != null) {
-                    members.add(member);
-                }
+                // _10Member member = _10Member.fromCSV(line);
+                // if (member != null) {
+                members.add(null);
+                // }
             }
         } catch (
 
@@ -112,8 +125,8 @@ public class _5MemberService {
         // 후
         try (BufferedWriter bw = new BufferedWriter(
                 new OutputStreamWriter(new FileOutputStream(FILE_NAME), "UTF-8"))) {
-            for (Member member : members) {
-                bw.write(member.toCSV());
+            for (_10Member member : members) {
+                // bw.write(member.toCSV());
                 bw.newLine();
             }
         } catch (
@@ -133,12 +146,12 @@ public class _5MemberService {
 
         // 반복문으로 더미 데이터 10개 정도 넣기.
         for (int i = 0; i < 10; i++) {
-            Member dummyMember = new Member(
-                    "더미회원" + (i + 1),
-                    "password" + (i + 1),
-                    "dummy" + (i + 1) + "@example.com",
-                    DateUtil.getCurrentDateTime());
-            members.add(dummyMember);
+            // _10Member dummyMember = new _10Member(
+            // "더미회원" + (i + 1),
+            // "password" + (i + 1),
+            // "dummy" + (i + 1) + "@example.com",
+            // DateUtil.getCurrentDateTime());
+            members.add(null);
         }
 
         saveMembersToFile();
@@ -155,22 +168,24 @@ public class _5MemberService {
     // 3) JTable에 회원 데이터 반영 (새로고침), 전체 모든 회원 조회
     public void refreshTable() {
         tableModel.setRowCount(0); // 기존 데이터 모두 제거, 모든 행 삭제,
-        for (Member member : members) {
+        for (_10Member member : members) {
             // tableModel 에, 데이터 쓰기, 기본 데이터 테이블 데이터를 쓰고, -> 출력용 테이블 연결하기.
             // System.out.println("데이터 출력시 깨지는 부분확인 이름: " + member.getName());
             tableModel.addRow(new Object[] {
-                    member.getName(), member.getEmail(), member.getPassword(), member.getRegDate()
+                    // member.getName(), member.getEmail(), member.getPassword(),
+                    // member.getRegDate()
             });
         }
     }
 
     // 4) 검색 결과 테이블에 반영, 기존 전체데이터를 삭제하고, 검색된 결과 멤버들만 조회,
-    public void showSearchResults(ArrayList<Member> results) {
+    public void showSearchResults(ArrayList<_10Member> results) {
         tableModel.setRowCount(0);
-        for (Member member : results) {
+        for (_10Member member : results) {
             // tableModel 에, 데이터 쓰기, 기본 데이터 테이블 데이터를 쓰고, -> 출력용 테이블 연결하기.
             tableModel.addRow(new Object[] {
-                    member.getName(), member.getEmail(), member.getPassword(), member.getRegDate()
+                    // member.getName(), member.getEmail(), member.getPassword(),
+                    // member.getRegDate()
             });
         }
     }
@@ -185,10 +200,10 @@ public class _5MemberService {
             return;// 검색 기능 메서드 나가기,
         }
         // 임시로 담아둘 멤버 리스트 하나 정의.
-        ArrayList<Member> resultList = new ArrayList<>();
+        ArrayList<_10Member> resultList = new ArrayList<>();
         // members : 파일에서 읽어서, 담아둔 임시 전체 멤버 리스트,
         // resultList, 아래 반복문에서, 검색어 일치하는 멤버들만 담을 공간.
-        for (Member member : members) {
+        for (_10Member member : members) {
             if (member.getName().toLowerCase().contains(query) ||
                     member.getEmail().toLowerCase().contains(query)) {
                 resultList.add(member);
