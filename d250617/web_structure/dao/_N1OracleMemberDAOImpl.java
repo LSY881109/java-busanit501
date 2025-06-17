@@ -107,9 +107,78 @@ public class _N1OracleMemberDAOImpl implements _9DAO_Inaterface {
     }
 
     @Override
-    public boolean update(_10Member member) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+    public boolean update(_10Member member) { // 수정할 내용도 , 여기 멤버에 담아져 있습니다.
+        try {
+            conn = _4DBConnectionManager.getConnection();
+            // 변경,
+            String query = "UPDATE MEMBER501 SET NAME = ?, EMAIL = ?, " +
+                    "PASSWORD = ?, REG_DATE = ? WHERE ID = ?";
+            pstmt = conn.prepareStatement(query);
+            // 추가할 데이터를 ,해당 와일드카드(?) 에 해당하는 데이터 임시로 하드코딩으로 넣고 있고,
+            // 화면에서 데이터를 사용자로부터 받아서 추가 할 예정.
+            // 수정 할 내용
+
+            // 0617, 회원 수정, 변경 전
+            // pstmt.setString(1, "이상용 수정");
+            // pstmt.setString(2, "1234 수정");
+            // pstmt.setString(3, "lsy@naver.com 수정");
+            // pstmt.setString(4, DateUtil.getCurrentDateTime());
+            // pstmt.setInt(5, 1);
+
+            // 0617, 회원 수정, 변경 후
+            pstmt.setString(1, member.getName());
+            pstmt.setString(2, member.getPassword());
+            pstmt.setString(3, member.getEmail());
+            pstmt.setString(4, DateUtil.getCurrentDateTime());
+            // 주의 사항, 수정할 , 멤버의 인덱스를 받아오기.
+            pstmt.setInt(5, 1);
+
+            // 6. SQL 문 전송 및 결과값 얻기, 1) 조회 버전: executeQuery,
+            // 2) 쓰기, 수정, 삭제 :executeUpdate()
+            // 조회 버전
+            // 예) ResultSet rs = pstmt.executeQuery(query)
+            // ResultSet : 가상의 테이블, 데이터 베이스에서 조회된 데이터를 테이블 형식으로 메모리상에 저장.
+            // 0 행 부터 시작 함.
+            // 예) while(rs.next()){ // 0행 시작 -> 1행의 데이터가 존재 하면, 가져올 작업한다.
+            // int id = rs.getInt("id");
+            // String name = rs.getString("name");
+
+            // 쓰기 버전,
+            // int result = pstmt.executeUpdate()
+            System.out.println("6. 전송 전 완료");
+            // 오류 업데이트 시에, 메서도 호출 방법이 다름.
+            // int result = pstmt.executeUpdate(query);
+            int result = pstmt.executeUpdate();
+            System.out.println("6-2. 전송 후 완료");
+            System.out.println(result + " 개의 데이터가 저장됨");
+
+        } catch (Exception e) {
+            // TODO: handle exception
+        } finally {
+            // 7. 자원 반납.
+            // 객체를 생성한 역순으로 반납.
+            // 1) Connection 2) PreparedStatement 3) ResultSet 객체를 순서로 만들었음.
+            // 해당 객체의 자원 반납 객체.close()
+            // try ~ resource 구문으로 , 자동으로 autocloseable 이용하거나,
+
+            // 변경전,
+            // try {
+            // // 조회 할 때만 필요
+            // // if (rs != null)
+            // // rs.close();
+            // if (pstmt != null)
+            // pstmt.close();
+            // if (conn != null)
+            // conn.close();
+            // } catch (Exception e) {
+            // // TODO: handle exception
+            // }
+
+            // 변경후,
+            _4DBConnectionManager.close(null, pstmt, conn);
+        }
+
+        return true;
     }
 
     @Override

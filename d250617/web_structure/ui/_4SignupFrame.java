@@ -242,8 +242,15 @@ public class _4SignupFrame extends JFrame {
 
     // 7) 회원 수정 창
     private void showUpdateDialog() {
+        // 0617, 회원 수정 변경 전,
         // 테이블 상에서, 선택된 행의 번호를 가져와서, 수정 작업,
         int row = memberTable.getSelectedRow();
+
+        // 0617, 회원 수정 변경 후,
+        // 테이블 상에서, 선택된 실제 ID 값만 가져오기,
+        Object value = memberTable.getValueAt(row, 0);
+        System.out.println("클릭시 가져온 값 확인 테스트 : " + value);
+
         // 유효성 체크.
         if (row == -1) {
             JOptionPane.showMessageDialog(this, "수정 할 회원을 선택하세요.");
@@ -304,13 +311,19 @@ public class _4SignupFrame extends JFrame {
             // 가입시
             // Member member = new Member(name, password, email, regDate);
             // 수정 할 경우
-            oldMember.setName(name);
-            oldMember.setEmail(email);
-            oldMember.setPassword(password);
-            // oldMember.setRegDate(regDate);
-            service.saveMembersToFile();
-            // 변경사항 새로고침, 즉 다 지우고, 전체 회원을 다시 그리기.
-            service.refreshTable();
+
+            // 0617, 회원 수정, 변경 전,
+            // oldMember.setName(name);
+            // oldMember.setEmail(email);
+            // oldMember.setPassword(password);
+            // // oldMember.setRegDate(regDate);
+            // service.saveMembersToFile();
+            // // 변경사항 새로고침, 즉 다 지우고, 전체 회원을 다시 그리기.
+            // service.refreshTable();
+
+            // 0617, 회원 수정, 변경 후,
+            // 1) 화면에서 변경할 데이터를 멤버에 담기.
+            // 2) 수정하는 메서드에, 변경할 내용의 멤버 객체 전달 + 수정할 인덱스도 같이 넘기기.!@!
         }
     }
 
