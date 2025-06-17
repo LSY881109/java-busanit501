@@ -258,6 +258,7 @@ public class _4SignupFrame extends JFrame {
             System.out.println("선택된 ID 정수화 : " + member_id);
         }
         member_id = ((Integer) value).intValue();
+        System.out.println("선택된 ID 정수화 2: " + member_id);
         // 유효성 체크.
         if (row == -1) {
             JOptionPane.showMessageDialog(this, "수정 할 회원을 선택하세요.");
@@ -342,6 +343,11 @@ public class _4SignupFrame extends JFrame {
             oldMember.setName(name);
             oldMember.setEmail(email);
             oldMember.setPassword(password);
+
+            // 0617, 회원 수정 디버깅 1,
+            // 디비에 수정 된 내용 반영하기 전에, 데이터 확인.
+            System.out.println("수정 하기전 데이터 확인 : " + oldMember);
+
             // oldMember.setRegDate(regDate);
             // 2) 수정하는 메서드에, 변경할 내용의 멤버 객체 전달 + 수정할 인덱스도 같이 넘기기.!@!
             service.updateMember(oldMember);

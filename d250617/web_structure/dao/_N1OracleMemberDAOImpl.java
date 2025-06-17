@@ -139,6 +139,10 @@ public class _N1OracleMemberDAOImpl implements _9DAO_Inaterface {
     @Override
     public boolean update(_10Member member) { // 수정할 내용도 , 여기 멤버에 담아져 있습니다.
         try {
+            // 0617, 회원 수정 디버깅 3,
+            System.out.println("파일명 _N1OracleMemberDAOImpl.java: ");
+            System.out.println("넘어온 멤버 데이터 확인");
+            System.out.println(member);
             conn = _4DBConnectionManager.getConnection();
             // 변경,
             String query = "UPDATE MEMBER501 SET NAME = ?, EMAIL = ?, " +
@@ -161,7 +165,9 @@ public class _N1OracleMemberDAOImpl implements _9DAO_Inaterface {
             pstmt.setString(3, member.getEmail());
             pstmt.setString(4, DateUtil.getCurrentDateTime());
             // 주의 사항, 수정할 , 멤버의 인덱스를 받아오기.
-            pstmt.setInt(5, 1);
+            // 오류, 수정할 아이디를 1 번이 아니라 -> 멤버에서 id 가져와서 사용.
+            // pstmt.setInt(5, 1);
+            pstmt.setInt(5, member.getId());
 
             // 6. SQL 문 전송 및 결과값 얻기, 1) 조회 버전: executeQuery,
             // 2) 쓰기, 수정, 삭제 :executeUpdate()

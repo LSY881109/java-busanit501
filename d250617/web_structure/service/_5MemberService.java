@@ -81,7 +81,10 @@ public class _5MemberService {
     }
 
     // 0617, 회원 수정, 디비에 반영하기.
+    // 0617, 회원 수정 디버깅 2,
     public void updateMember(_10Member member) {
+        System.out.println("_5MemberService 파일 회원 수정 데이터 확인 :");
+        System.out.println(member);
         dao.update(member);
     }
 
