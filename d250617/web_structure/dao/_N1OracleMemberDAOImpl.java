@@ -57,9 +57,39 @@ public class _N1OracleMemberDAOImpl implements _9DAO_Inaterface {
     }
 
     @Override
-    public _10Member findById(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+    public _10Member findById(int member_id) {
+        // 넘어온 회원의 아이디로 , 한명의 회원을 조회하는 작업.
+        // 전체 조회 기능과 비슷한 구조임.
+        _10Member member = new _10Member(); // 디비에서 조회한 한명의 회원의 정보를 담을 빈 객체.
+        try {
+            conn = _4DBConnectionManager.getConnection();
+            String query = "SELECT * FROM MEMBER501 WHERE ID = ?";
+            pstmt = conn.prepareStatement(query);
+            // 0617, 회원수정에서, 한명의 회원 정보를 가져오는 기능, 변경전
+            // pstmt.setInt(1, 2);
+
+            // 0617, 회원수정에서, 한명의 회원 정보를 가져오는 기능, 변경후
+            pstmt.setInt(1, member_id);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String email = rs.getString("email");
+                String password2 = rs.getString("password");
+                String reg_date = rs.getString("reg_date");
+                member.setId(id);
+                member.setName(name);
+                member.setEmail(email);
+                member.setPassword(password2);
+                member.setReg_date(reg_date);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            _4DBConnectionManager.close(null, pstmt, conn);
+        }
+        return member;
+
     }
 
     @Override

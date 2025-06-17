@@ -250,6 +250,13 @@ public class _4SignupFrame extends JFrame {
         // 테이블 상에서, 선택된 실제 ID 값만 가져오기,
         Object value = memberTable.getValueAt(row, 0);
         System.out.println("클릭시 가져온 값 확인 테스트 : " + value);
+        // 실제 멤버의 아이디를 , int 타입으로 변환.
+        // 전역으로 사용할 , 변환된 ID를 따로 선언
+        int member_id;
+        if (value instanceof Integer) {
+            member_id = ((Integer) value).intValue();
+            System.out.println("선택된 ID 정수화 : " + member_id);
+        }
 
         // 유효성 체크.
         if (row == -1) {
@@ -258,7 +265,14 @@ public class _4SignupFrame extends JFrame {
         }
         // 전체 회원 목록 리스트에, 해당 회원 정보를 가져오기. .
         // Member oldMember = members.get(row);
-        _10Member oldMember = service.getMembers().get(row);
+
+        // 0617 , 회원 수정 변경 전,
+        // 단순 리스트에 등록된 순서로 데이터를 가져오고 있음.
+        // _10Member oldMember = service.getMembers().get(row);
+
+        // 0617 , 회원 수정 변경 후, 실제 데이터에서, 해당 ID 번호로 회원의 정보를 가져오기.
+        // 여기서, 한명의 회원 정보를 가져오는 DAO 메서드가 필요함.
+        // 추가 작업 필요함. -> 한명 회원 정보 가져오기 작업.
 
         // 이름, 이메일, 패스워드, 입력 창(한줄 공간)
         // 가입시에, 새롭게 내용을 입력을 했다면,
