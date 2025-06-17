@@ -228,7 +228,8 @@ public class _4SignupFrame extends JFrame {
             // 매개변수에서 id 부분은 큰 의미가 없다 -> 왜? 디비에 넣을 때, 필요 없어서, -> 자동생성이라서
             _10Member member = new _10Member(1, name, email, password, regDate);
             // 2) insert 메서드에, 입력받은 회원 정보 member 전달,
-
+            service.addMemberDB(member);
+            JOptionPane.showMessageDialog(this, "회원 가입 되었습니다.");
             // 변경사항 새로고침, 즉 다 지우고, 전체 회원을 다시 그리기.
             service.refreshTable();
         }

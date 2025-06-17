@@ -70,7 +70,8 @@ public class _5MemberService {
     // 0617, 회원가입 변경 후
     public void addMemberDB(_10Member member) {
         // 디비에 쓰는 기능을 사용하기.
-
+        boolean result = dao.insert(member);
+        // System.out.println("회원 가입 완료");
     }
 
     // 0617 순서3, 해당 기능 수정.
