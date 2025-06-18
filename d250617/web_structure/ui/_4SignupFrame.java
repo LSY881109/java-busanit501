@@ -142,14 +142,28 @@ public class _4SignupFrame extends JFrame {
             service.refreshTable();
         });
         // 검색
-        searchBtn.addActionListener(e -> service.searchMembers());
+        // 변경 전, 검색 호출,
+        // 0618, 검색
+        // searchBtn.addActionListener(e -> service.searchMembers());
+
+        // 변경 후, 검색 호출,
+        // 0618, 검색
+        searchBtn.addActionListener(e -> service.searchMembersDB());
         // 검색 초기화
         resetBtn.addActionListener(e -> {
             searchField.setText("");
             service.refreshTable();
         });
         // 검색어에서, 엔터를 입력해도, 실행이 되게끔.
-        searchField.addActionListener(e -> service.searchMembers());
+
+        // 검색
+        // 변경 전, 검색 호출,
+        // 0618, 검색
+        // searchField.addActionListener(e -> service.searchMembers());
+
+        // 변경 후, 검색 호출,
+        // 0618, 검색
+        searchField.addActionListener(e -> service.searchMembersDB());
 
         // 더미 데이터 기능 추가 이벤트 리스너 연결.
         dummyBtn.addActionListener(e -> service.dummyMake());

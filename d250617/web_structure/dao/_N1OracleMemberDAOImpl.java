@@ -236,10 +236,44 @@ public class _N1OracleMemberDAOImpl implements _9DAO_Inaterface {
         return true;
     }
 
+    // 0618, 검색 작업 중2
     @Override
-    public _10Member findByName(String name) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findByName'");
+    public List<_10Member> findByName(String searchName) {
+        // 디비에서 검색된 회원을 -> 멤버 모델클래스에 담고 -> 리스트에 담기.
+        // 반환 : 리스트
+        // 참고 파일 : _8JDBC_FindName.java, 6/16
+        // 검색된 모델 회원들을 담을 임시 리스트 필요함.
+        List<_10Member> searchMemberList = new ArrayList<>();
+        try {
+            conn = _4DBConnectionManager.getConnection();
+            // 변경.
+            String query = "SELECT * FROM MEMBER501 WHERE NAME LIKE ?";
+            pstmt = conn.prepareStatement(query);
+            // 변경,: 기존은 하드코딩으로 임의로 값을 넣기 -> 동적으로 검색어를 전달 받아서, 키워드로 검색
+            // 전, 0618
+            // String searchKeyword = "이상용";
+            // 후, 0618
+            String searchKeyword = searchName;
+            pstmt.setString(1, "%" + searchKeyword + "%");
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String email = rs.getString("email");
+                String password2 = rs.getString("password");
+                String reg_date = rs.getString("reg_date");
+                // 1) 멤버에 담기
+                _10Member member = new _10Member(id, name, email, password2, reg_date);
+                // 2) 리스트에 담기
+                searchMemberList.add(member);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            _4DBConnectionManager.close(null, pstmt, conn);
+        }
+        return searchMemberList;
     }
 
 }
